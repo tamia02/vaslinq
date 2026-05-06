@@ -32,8 +32,8 @@ export default function Footer() {
 
         <div className="flex flex-col gap-4">
           <div className="font-bold text-on-surface text-xs tracking-widest mb-6">Company</div>
-          <Link href="/extended" className="text-on-surface-variant text-sm hover:text-tertiary transition-colors">SaaS Platforms</Link>
-          <Link href="/extended" className="text-on-surface-variant text-sm hover:text-tertiary transition-colors">Premium 3D Web</Link>
+          <Link href="/enterprise" className="text-on-surface-variant text-sm hover:text-tertiary transition-colors">SaaS Platforms</Link>
+          <Link href="/enterprise" className="text-on-surface-variant text-sm hover:text-tertiary transition-colors">Premium 3D Web</Link>
           <Link href="/ecosystem" className="text-on-surface-variant text-sm hover:text-tertiary transition-colors">Project Portfolio</Link>
         </div>
 
