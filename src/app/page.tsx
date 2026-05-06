@@ -61,28 +61,43 @@ export default function Home() {
             <p className="text-on-surface-variant max-w-xl text-lg">Every system is built with automation and scalability in mind.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-            <div className="md:col-span-8 glass-card rounded-2xl p-10 flex flex-col justify-between group cursor-pointer h-[400px]">
-              <div className="flex justify-between items-start">
-                <div className="p-4 rounded-xl bg-primary/10 border border-primary/20">
-                  <span className="material-symbols-outlined text-primary text-4xl">settings_suggest</span>
+            {/* Custom Automation */}
+            <div className="md:col-span-8 glass-card rounded-2xl p-0 flex flex-col justify-between group cursor-pointer h-[450px] overflow-hidden border-primary/20">
+              <div className="absolute inset-0 z-0">
+                <img src="/automation.png" alt="Automation" className="w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+              </div>
+              <div className="relative z-10 p-10 flex flex-col h-full justify-between">
+                <div className="flex justify-between items-start">
+                  <div className="p-4 rounded-xl bg-primary/10 border border-primary/20">
+                    <span className="material-symbols-outlined text-primary text-4xl">settings_suggest</span>
+                  </div>
+                  <span className="font-bold text-xs tracking-widest text-primary">Custom AI Automation Systems</span>
                 </div>
-                <span className="font-bold text-xs tracking-widest text-primary">Custom AI Automation Systems</span>
-              </div>
-              <div>
-                <h3 className="text-3xl font-bold mb-4 tracking-tight">Tailored Business Workflows</h3>
-                <p className="text-on-surface-variant max-w-md leading-relaxed">From automated lead follow-ups to CRM automation and sales pipelines, we build systems that fit your specific business needs.</p>
-              </div>
-            </div>
-            <div className="md:col-span-4 glass-card rounded-2xl p-10 flex flex-col justify-between h-[400px]">
-              <div className="p-4 w-fit rounded-xl bg-secondary/10 border border-secondary/20">
-                <span className="material-symbols-outlined text-secondary text-4xl">person_search</span>
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold mb-4 tracking-tight">Lead Generation & Data Scraping</h3>
-                <p className="text-on-surface-variant leading-relaxed">Building highly targeted lead pipelines using email scraping, LinkedIn lead gen, and contact database building.</p>
+                <div>
+                  <h3 className="text-3xl font-bold mb-4 tracking-tight">Tailored Business Workflows</h3>
+                  <p className="text-on-surface-variant max-w-md leading-relaxed">From automated lead follow-ups to CRM automation and sales pipelines, we build systems that fit your specific business needs.</p>
+                </div>
               </div>
             </div>
-            <div className="md:col-span-6 glass-card rounded-2xl p-10 flex flex-col sm:flex-row gap-8 items-center text-center sm:text-left">
+            {/* Lead Gen */}
+            <div className="md:col-span-4 glass-card rounded-2xl p-0 flex flex-col justify-between h-[450px] overflow-hidden border-secondary/20 group">
+              <div className="absolute inset-0 z-0">
+                <img src="/leads.png" alt="Leads" className="w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-b from-background via-background/20 to-transparent"></div>
+              </div>
+              <div className="relative z-10 p-10 flex flex-col h-full justify-between">
+                <div className="p-4 w-fit rounded-xl bg-secondary/10 border border-secondary/20">
+                  <span className="material-symbols-outlined text-secondary text-4xl">person_search</span>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-4 tracking-tight">Lead Generation & Data Scraping</h3>
+                  <p className="text-on-surface-variant leading-relaxed">Building highly targeted lead pipelines using email scraping, LinkedIn lead gen, and contact database building.</p>
+                </div>
+              </div>
+            </div>
+            {/* Content Systems */}
+            <div className="md:col-span-6 glass-card rounded-2xl p-10 flex flex-col sm:flex-row gap-8 items-center text-center sm:text-left hover:bg-tertiary/5 transition-colors border-tertiary/10">
               <div className="p-4 rounded-xl bg-tertiary/10 border border-tertiary/20 shrink-0">
                 <span className="material-symbols-outlined text-tertiary text-4xl">content_copy</span>
               </div>
@@ -91,7 +106,8 @@ export default function Home() {
                 <p className="text-on-surface-variant leading-relaxed">Automate social media content, ad creatives, and personalized outreach messages.</p>
               </div>
             </div>
-            <div className="md:col-span-6 glass-card rounded-2xl p-10 flex flex-col sm:flex-row gap-8 items-center text-center sm:text-left">
+            {/* Meta Ads */}
+            <div className="md:col-span-6 glass-card rounded-2xl p-10 flex flex-col sm:flex-row gap-8 items-center text-center sm:text-left hover:bg-primary/5 transition-colors border-primary/10">
               <div className="p-4 rounded-xl bg-primary/10 border border-primary/20 shrink-0">
                 <span className="material-symbols-outlined text-primary text-4xl">ads_click</span>
               </div>

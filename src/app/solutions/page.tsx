@@ -28,8 +28,8 @@ export default function SolutionsPage() {
 
         {/* AI WhatsApp Chatbot Section */}
         <section className="py-section-gap max-w-container-max px-margin-page mx-auto">
-          <div className="grid md:grid-cols-2 gap-20 items-center">
-            <div className="order-2 md:order-1">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div className="order-2 lg:order-1">
               <h2 className="text-4xl md:text-5xl font-bold text-on-surface mb-6 tracking-tight">AI WhatsApp Chatbot</h2>
               <p className="text-lg text-on-surface-variant mb-8 leading-relaxed">An AI-powered assistant trained specifically for your business. Behave like a smart receptionist that can answer FAQs, book appointments, and collect leads 24/7.</p>
               
@@ -69,15 +69,57 @@ export default function SolutionsPage() {
                 </div>
               </div>
             </div>
-            <div className="order-1 md:order-2 glass-card rounded-3xl p-1 relative overflow-hidden group">
-              <img 
-                className="w-full h-full object-cover rounded-3xl opacity-80 group-hover:opacity-100 transition-opacity aspect-square" 
-                alt="WhatsApp AI Automation"
-                src="https://lh3.googleusercontent.com/aida-public/ALi7Tf7o0Hn99-X3iW8G6E8XoKWH0_DAXlHhL2zHO0WyNhv7wlbODtgNK1NFvODcNTotpjZ46moAkVIT0QsLpBK2d2Zg4bKug9RcNbb5IheVEkCVxIieKQWcogpW_YaV3RHUZnpXHzPIrDz_ENIjWbvMK4j_GjVSjHHt6chh_t8He9o8ZRxInPOV6lg-Mafk8QHnjI1u7L4g2FmC7uTjDEPzdG_YJ60WRAnwqc8EFw-MDMJrMufmnDHA4C" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-              <div className="absolute bottom-8 left-8">
-                <span className="material-symbols-outlined text-primary text-5xl">chat_bubble</span>
+            
+            {/* WhatsApp Conversation Mockup */}
+            <div className="order-1 lg:order-2 relative">
+              <div className="absolute -inset-10 bg-primary/10 blur-[100px] rounded-full"></div>
+              <div className="relative glass-card rounded-[40px] border-white/10 overflow-hidden shadow-2xl bg-[#0b141a]">
+                {/* Header */}
+                <div className="bg-[#1fb381] px-6 py-4 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                      <span className="material-symbols-outlined text-white">person</span>
+                    </div>
+                    <div>
+                      <div className="text-white font-bold text-sm">Priya | Senior Counselor</div>
+                      <div className="text-white/70 text-[10px]">Online</div>
+                    </div>
+                  </div>
+                  <span className="material-symbols-outlined text-white">more_vert</span>
+                </div>
+                
+                {/* Chat Body */}
+                <div className="p-6 space-y-4 h-[500px] overflow-y-auto scrollbar-hide text-sm">
+                  <div className="flex flex-col gap-2">
+                    <div className="bg-[#202c33] text-white p-4 rounded-2xl rounded-tl-none max-w-[85%] self-start border border-white/5">
+                      Hi! 😊 I&apos;m Priya, Senior Counselor at Holyfaith Academy. Which class are we looking at for your little one?
+                    </div>
+                  </div>
+                  <div className="bg-[#005c4b] text-white p-4 rounded-2xl rounded-tr-none max-w-[85%] self-end">
+                    like class 4 can you tell me
+                  </div>
+                  <div className="bg-[#202c33] text-white p-4 rounded-2xl rounded-tl-none max-w-[85%] self-start border border-white/5">
+                    That&apos;s a wonderful stage! 😊 What&apos;s your biggest priority — academics, hostel, or overall growth?
+                  </div>
+                  <div className="bg-[#005c4b] text-white p-4 rounded-2xl rounded-tr-none max-w-[85%] self-end">
+                    overall development but thoda fees structure or yhn dur rhti hun schl se
+                  </div>
+                  <div className="bg-[#202c33] text-white p-4 rounded-2xl rounded-tl-none max-w-[85%] self-start border border-white/5">
+                    For overall development, our focus on holistic growth through academics, sports, and arts is ideal. For Class IV, the hostel admission fee is ₹17,000, with monthly fees at ₹8,500. If distance is a concern, our hostel provides a supportive home-like environment. 😊
+                  </div>
+                  <div className="bg-[#005c4b] text-white p-4 rounded-2xl rounded-tr-none max-w-[85%] self-end font-medium">
+                    fees wgera btaea thoda (Class 7)
+                  </div>
+                  <div className="bg-[#202c33] text-white p-4 rounded-2xl rounded-tl-none max-w-[85%] self-start border border-white/5">
+                    Class VII ke liye day scholar admission fees ₹15,000, boarding ₹15,000, aur hostel ₹18,000 hai. Monthly tuition fees ₹2,300 hai. Hostel mein meals, coaching, AC room sab include hai.
+                  </div>
+                  <div className="bg-[#005c4b] text-white p-4 rounded-2xl rounded-tr-none max-w-[85%] self-end">
+                    mujhe hostel costly lag rha haii
+                  </div>
+                  <div className="bg-[#202c33] text-white p-4 rounded-2xl rounded-tl-none max-w-[85%] self-start border border-white/5">
+                    Main samajh sakti hoon! Lekin ICSE board, AC hostel, coaching aur meals — sab included hai. Zyada parents kehte hain ki yeh asal mein paise bachaata hai.
+                  </div>
+                </div>
               </div>
             </div>
           </div>

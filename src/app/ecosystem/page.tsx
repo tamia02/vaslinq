@@ -25,36 +25,45 @@ export default function EcosystemPage() {
         {/* Custom Automation Bento */}
         <section className="py-section-gap px-margin-page max-w-container-max mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="md:col-span-2 glass-card p-12 rounded-3xl group border-primary/20 hover:bg-primary/5 transition-all">
-              <h3 className="text-3xl font-bold mb-6 tracking-tight">Tailored Workflows</h3>
-              <div className="grid sm:grid-cols-2 gap-12">
-                <div>
-                  <h4 className="text-primary font-bold mb-4 flex items-center gap-2">
-                    <span className="material-symbols-outlined">rocket_launch</span>
-                    Sales & Marketing
-                  </h4>
-                  <ul className="space-y-3 text-on-surface-variant">
-                    <li>• Automated Follow-up Systems</li>
-                    <li>• Sales Pipeline Automation</li>
-                    <li>• AI Content Generation</li>
-                    <li>• Lead Management</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-secondary font-bold mb-4 flex items-center gap-2">
-                    <span className="material-symbols-outlined">settings_suggest</span>
-                    Operations & CS
-                  </h4>
-                  <ul className="space-y-3 text-on-surface-variant">
-                    <li>• CRM Automation</li>
-                    <li>• Client Onboarding Systems</li>
-                    <li>• Internal Business Tools</li>
-                    <li>• Reporting & Analytics</li>
-                  </ul>
+            <div className="md:col-span-2 glass-card p-0 rounded-3xl group border-primary/20 overflow-hidden">
+              <div className="h-64 overflow-hidden relative">
+                <img src="/automation.png" alt="Custom Automation" className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0b141a] to-transparent"></div>
+              </div>
+              <div className="p-12 -mt-16 relative z-10">
+                <h3 className="text-3xl font-bold mb-6 tracking-tight">Tailored Workflows</h3>
+                <div className="grid sm:grid-cols-2 gap-12">
+                  <div>
+                    <h4 className="text-primary font-bold mb-4 flex items-center gap-2">
+                      <span className="material-symbols-outlined">rocket_launch</span>
+                      Sales & Marketing
+                    </h4>
+                    <ul className="space-y-3 text-on-surface-variant">
+                      <li>• Automated Follow-up Systems</li>
+                      <li>• Sales Pipeline Automation</li>
+                      <li>• AI Content Generation</li>
+                      <li>• Lead Management</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-secondary font-bold mb-4 flex items-center gap-2">
+                      <span className="material-symbols-outlined">settings_suggest</span>
+                      Operations & CS
+                    </h4>
+                    <ul className="space-y-3 text-on-surface-variant">
+                      <li>• CRM Automation</li>
+                      <li>• Client Onboarding Systems</li>
+                      <li>• Internal Business Tools</li>
+                      <li>• Reporting & Analytics</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="glass-card p-12 rounded-3xl border-secondary/20 flex flex-col justify-center text-center">
+            <div className="glass-card p-12 rounded-3xl border-secondary/20 flex flex-col justify-center text-center relative overflow-hidden group">
+              <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity -z-10">
+                <img src="/leads.png" alt="Leads" className="w-full h-full object-cover" />
+              </div>
               <div className="text-xs font-bold text-secondary tracking-widest mb-4 uppercase">Custom Pricing</div>
               <div className="text-4xl font-bold text-on-surface mb-2">₹30,000 – ₹80,000</div>
               <div className="text-on-surface-variant text-sm italic">Starting from $500+ International</div>
@@ -86,11 +95,12 @@ export default function EcosystemPage() {
                   </div>
                 </div>
               </div>
-              <div className="glass-card p-12 rounded-3xl border-outline-variant/30 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-5 grid-pattern"></div>
-                <div className="text-center relative z-10">
-                  <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-8 border border-primary/20">
-                    <span className="material-symbols-outlined text-primary text-5xl">trending_up</span>
+              <div className="glass-card p-0 rounded-3xl border-outline-variant/30 flex items-center justify-center relative overflow-hidden group">
+                <img src="/leads.png" alt="Lead Generation" className="w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0b141a]"></div>
+                <div className="absolute bottom-12 left-12 right-12 text-center">
+                  <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-8 border border-primary/20">
+                    <span className="material-symbols-outlined text-primary text-4xl">trending_up</span>
                   </div>
                   <h3 className="text-3xl font-bold mb-4 tracking-tight">Revenue Focused</h3>
                   <p className="text-on-surface-variant">Our systems are built to increase leads, improve conversions, and save operational time.</p>
