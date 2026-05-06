@@ -1,11 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="w-full py-section-gap bg-surface-container-lowest border-t border-outline-variant/20 mt-auto">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-page max-w-container-max mx-auto">
         <div className="col-span-1 md:col-span-1">
-          <div className="font-display font-bold text-2xl text-on-surface mb-8">Vaslix</div>
+          <div className="flex items-center gap-4 mb-8">
+            <Image src="/logo.png" alt="Vaslix Logo" width={32} height={32} className="rounded-md" />
+            <div className="font-display font-bold text-2xl text-on-surface">Vaslix</div>
+          </div>
           <p className="text-on-surface-variant text-sm opacity-80 mb-8 max-w-xs leading-relaxed">
             The backbone for the next generation of intelligent business automation infrastructure.
           </p>
