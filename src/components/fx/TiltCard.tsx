@@ -9,7 +9,7 @@ import {
   useAnimationFrame,
   useReducedMotion,
 } from "framer-motion";
-import { useRef, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
@@ -20,6 +20,8 @@ type Props = {
 export default function TiltCard({ children, className = "", max = 7 }: Props) {
   const reduced = useReducedMotion();
   const seedRef = useRef(Math.random() * Math.PI * 2);
+  const nodeRef = useRef<HTMLDivElement>(null);
+  const visibleRef = useRef(false);
 
   const hoverRx = useMotionValue(0);
   const hoverRy = useMotionValue(0);
@@ -37,8 +39,24 @@ export default function TiltCard({ children, className = "", max = 7 }: Props) {
   const rx = useTransform([shrx, idleRx], ([a, b]: number[]) => a + b);
   const ry = useTransform([shry, idleRy], ([a, b]: number[]) => a + b);
 
+  // Only the cards actually on screen need the idle wobble ticking; the
+  // rest are wasted main-thread work competing with things like autoplay
+  // video decode elsewhere on the page.
+  useEffect(() => {
+    const node = nodeRef.current;
+    if (!node || reduced) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        visibleRef.current = entry.isIntersecting;
+      },
+      { rootMargin: "200px" }
+    );
+    io.observe(node);
+    return () => io.disconnect();
+  }, [reduced]);
+
   useAnimationFrame((t) => {
-    if (reduced) return;
+    if (reduced || !visibleRef.current) return;
     const s = seedRef.current;
     idleRx.set(Math.sin(t / 2600 + s) * 2.2);
     idleRy.set(Math.cos(t / 3200 + s) * 2.8);
@@ -66,6 +84,7 @@ export default function TiltCard({ children, className = "", max = 7 }: Props) {
 
   return (
     <motion.div
+      ref={nodeRef}
       className={`relative ${className}`}
       onPointerMove={onMove}
       onPointerLeave={onLeave}

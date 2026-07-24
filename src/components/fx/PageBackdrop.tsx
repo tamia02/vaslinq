@@ -162,6 +162,15 @@ export default function PageBackdrop() {
     };
     if (!reduced) window.addEventListener("pointermove", onPointer, { passive: true });
 
+    // The video hero at the top of the page is fully opaque and sits above
+    // this layer, so drawing here while it covers the viewport is pure
+    // wasted work that competes with video decode for the main thread.
+    let heroCovered = window.scrollY < window.innerHeight;
+    const onScroll = () => {
+      heroCovered = window.scrollY < window.innerHeight;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
     let raf = 0;
     const start = performance.now();
     let last = start;
@@ -170,6 +179,11 @@ export default function PageBackdrop() {
       const dt = Math.min(0.05, (now - last) / 1000);
       last = now;
       const t = ((now - start) / 1000) % 3600;
+
+      if (heroCovered) {
+        if (!reduced) raf = requestAnimationFrame(frame);
+        return;
+      }
 
       mouse.x += (mouse.tx - mouse.x) * 0.04;
       mouse.y += (mouse.ty - mouse.y) * 0.04;
@@ -207,6 +221,7 @@ export default function PageBackdrop() {
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
+      window.removeEventListener("scroll", onScroll);
       if (!reduced) window.removeEventListener("pointermove", onPointer);
       cleanupGl?.();
     };
