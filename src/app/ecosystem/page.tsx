@@ -145,12 +145,15 @@ export default function EcosystemPage() {
           </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: "Dentist + AI Bot", url: "https://phenomenal-cascaron-982e78.netlify.app/", desc: "Medical booking automation" },
-              { title: "Pagani Experience", url: "https://stately-seahorse-c66817.netlify.app/", desc: "Interactive 3D storytelling" },
-              { title: "Kinetic UI", url: "https://kinetic-two.vercel.app/", desc: "Modern motion design" },
-              { title: "InquiryBoost", url: "https://inquiryboost.vercel.app/", desc: "Lead generation platform" }
+              { title: "Dentist + AI Bot", url: "https://phenomenal-cascaron-982e78.netlify.app/", desc: "Medical booking automation", icon: "medical_services" },
+              { title: "Pagani Experience", url: "https://stately-seahorse-c66817.netlify.app/", desc: "Interactive 3D storytelling", icon: "view_in_ar" },
+              { title: "Kinetic UI", url: "https://kinetic-two.vercel.app/", desc: "Modern motion design", icon: "motion_photos_auto" },
+              { title: "InquiryBoost", url: "https://inquiryboost.vercel.app/", desc: "Lead generation platform", icon: "trending_up" },
+              { title: "AARC Smart Bookkeeping", url: "https://aarcbookkeeping.com", desc: "Bookkeeping for small businesses & self-employed pros", icon: "calculate" },
+              { title: "Aandré Amelie", url: "https://aandreamelie.com", desc: "Luxury organic, cruelty-free skincare brand", icon: "spa" },
+              { title: "Laptop House", url: "https://laptophouse-knp.vercel.app", desc: "Trusted laptop retail & repair, Kanpur", icon: "laptop_mac" }
             ].map((project, i) => (
-              <Reveal key={project.title} delay={i * 100} className="h-full">
+              <Reveal key={project.title} delay={i * 80} className="h-full">
                 <TiltCard max={8} className="h-full">
                   <a
                     href={project.url}
@@ -159,7 +162,7 @@ export default function EcosystemPage() {
                     className="glass-card p-8 rounded-2xl border-outline-variant/20 hover:border-primary/50 transition-all group block h-full"
                   >
                     <div className="h-40 bg-white/5 rounded-xl mb-6 flex items-center justify-center group-hover:bg-primary/5 transition-all">
-                      <span className="material-symbols-outlined text-on-surface-variant/20 text-6xl group-hover:text-primary/30 transition-all">language</span>
+                      <span className="material-symbols-outlined text-on-surface-variant/20 text-6xl group-hover:text-primary/30 transition-all">{project.icon}</span>
                     </div>
                     <h4 className="text-xl font-bold mb-2 tracking-tight group-hover:text-primary transition-colors">{project.title}</h4>
                     <p className="text-on-surface-variant text-sm mb-6">{project.desc}</p>
