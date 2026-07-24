@@ -21,13 +21,13 @@ export default function Home() {
           </div>
           <HeroIntro className="flex flex-col items-center">
             <HeroItem>
-              <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-primary/25 bg-primary/10 backdrop-blur-md mb-8 shadow-[0_0_24px_rgba(207,188,255,0.12)]">
-                <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse shadow-[0_0_8px_#cfbcff]"></span>
+              <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-primary/25 bg-primary/10 backdrop-blur-md mb-8 shadow-[0_0_24px_rgba(94, 234, 212,0.12)]">
+                <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse shadow-[0_0_8px_#5eead4]"></span>
                 <span className="font-semibold text-[10px] tracking-widest text-primary">System Health: Nominal</span>
               </div>
             </HeroItem>
             <HeroItem>
-              <h1 className="headline-sheen font-bold text-6xl md:text-7xl lg:text-8xl max-w-4xl mb-8 leading-tight tracking-tighter drop-shadow-[0_10px_40px_rgba(103,80,164,0.35)]">
+              <h1 className="headline-sheen font-bold text-6xl md:text-7xl lg:text-8xl max-w-4xl mb-8 leading-tight tracking-tighter drop-shadow-[0_10px_40px_rgba(15, 118, 110,0.35)]">
                 Building AI Systems That <span className="headline-accent font-bold">Actually Grow Businesses</span>
               </h1>
             </HeroItem>
@@ -39,7 +39,7 @@ export default function Home() {
             <HeroItem>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Magnetic>
-                  <Link href="/solutions" className="btn-sheen bg-primary text-on-primary font-bold px-8 py-4 rounded-full flex items-center justify-center gap-2 transition-all shadow-[0_10px_40px_-10px_rgba(207,188,255,0.5)] hover:shadow-[0_0_35px_rgba(207,188,255,0.55)]">
+                  <Link href="/solutions" className="btn-sheen bg-primary text-on-primary font-bold px-8 py-4 rounded-full flex items-center justify-center gap-2 transition-all shadow-[0_10px_40px_-10px_rgba(94, 234, 212,0.5)] hover:shadow-[0_0_35px_rgba(94, 234, 212,0.55)]">
                     Explore Our Services
                     <span className="material-symbols-outlined">arrow_forward</span>
                   </Link>
@@ -214,13 +214,13 @@ export default function Home() {
                   <div className="space-y-6">
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Full Name</label>
-                      <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-primary/50 focus:shadow-[0_0_20px_rgba(207,188,255,0.1)] transition-all" placeholder="Enter your name" />
+                      <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-primary/50 focus:shadow-[0_0_20px_rgba(94, 234, 212,0.1)] transition-all" placeholder="Enter your name" />
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Business Email</label>
-                      <input type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-primary/50 focus:shadow-[0_0_20px_rgba(207,188,255,0.1)] transition-all" placeholder="your@company.com" />
+                      <input type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-primary/50 focus:shadow-[0_0_20px_rgba(94, 234, 212,0.1)] transition-all" placeholder="your@company.com" />
                     </div>
-                    <button className="btn-sheen w-full bg-primary text-on-primary font-bold py-5 rounded-xl hover:shadow-[0_0_30px_rgba(207,188,255,0.3)] transition-all mt-4">
+                    <button className="btn-sheen w-full bg-primary text-on-primary font-bold py-5 rounded-xl hover:shadow-[0_0_30px_rgba(94, 234, 212,0.3)] transition-all mt-4">
                       Send Inquiry
                     </button>
                   </div>

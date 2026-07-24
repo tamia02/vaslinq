@@ -31,7 +31,7 @@ export default function ExtendedPage() {
                 </div>
               </HeroItem>
               <HeroItem>
-                <h1 className="headline-sheen text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-[1.05] tracking-tighter drop-shadow-[0_10px_40px_rgba(103,80,164,0.35)]">
+                <h1 className="headline-sheen text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-[1.05] tracking-tighter drop-shadow-[0_10px_40px_rgba(15, 118, 110,0.35)]">
                   Futuristic 3D Websites & <br/>
                   <span className="headline-accent">SaaS Platforms.</span>
                 </h1>
@@ -70,7 +70,7 @@ export default function ExtendedPage() {
               </div>
             </Reveal>
             <Reveal delay={120} className="relative">
-              <TiltCard max={5} className="aspect-square w-full glass-card rounded-[40px] flex items-center justify-center p-12 border-primary/20 shadow-[0_0_80px_rgba(207,188,255,0.1)] overflow-hidden">
+              <TiltCard max={5} className="aspect-square w-full glass-card rounded-[40px] flex items-center justify-center p-12 border-primary/20 shadow-[0_0_80px_rgba(94, 234, 212,0.1)] overflow-hidden">
                 <div className="absolute inset-0 bg-primary/5 animate-pulse"></div>
                 <div className="relative z-10 text-center space-y-8">
                   <span className="material-symbols-outlined text-[120px] text-primary/40">view_in_ar</span>
@@ -85,7 +85,7 @@ export default function ExtendedPage() {
         </section>
 
         {/* Marketing & Ads Section */}
-        <section className="py-section-gap px-margin-page bg-[#020617]/50 relative overflow-hidden">
+        <section className="py-section-gap px-margin-page bg-[#04100e]/50 relative overflow-hidden">
           <div className="cinematic-glow -top-48 right-0 opacity-20"></div>
           <div className="max-w-container-max mx-auto relative z-10">
             <Reveal className="text-center mb-24">
@@ -96,7 +96,7 @@ export default function ExtendedPage() {
               <Reveal className="md:col-span-2">
                 <TiltCard max={3} className="glass-card p-0 rounded-3xl group overflow-hidden border-primary/20 h-[500px]">
                   <img src="/ads.png" alt="Meta Ads Automation" className="kenburns w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#04100e] via-[#04100e]/40 to-transparent"></div>
                   <div className="absolute bottom-12 left-12 right-12">
                     <div className="icon-glow mb-6 p-4 w-fit rounded-2xl bg-primary/10 border border-primary/20">
                       <span className="material-symbols-outlined text-primary text-[36px]">ads_click</span>
@@ -159,7 +159,7 @@ export default function ExtendedPage() {
           <Reveal className="max-w-4xl mx-auto relative z-10">
             <h2 className="h2-sheen text-5xl md:text-7xl font-bold mb-16 tracking-tighter leading-tight">Scale your business <br/>with Vaslix.</h2>
             <Magnetic className="inline-block">
-              <button className="btn-sheen px-16 py-8 bg-primary text-on-primary font-bold text-2xl rounded-2xl hover:shadow-[0_0_60px_rgba(207,188,255,0.5)] transition-all active:scale-95">
+              <button className="btn-sheen px-16 py-8 bg-primary text-on-primary font-bold text-2xl rounded-2xl hover:shadow-[0_0_60px_rgba(94, 234, 212,0.5)] transition-all active:scale-95">
                 Start Your Automation
               </button>
             </Magnetic>

@@ -26,7 +26,7 @@ export default function EcosystemPage() {
                 <span className="inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-md text-primary text-[10px] font-bold tracking-widest mb-8">Service Ecosystem</span>
               </HeroItem>
               <HeroItem>
-                <h1 className="headline-sheen text-6xl md:text-7xl font-bold mb-8 leading-tight tracking-tighter drop-shadow-[0_10px_40px_rgba(103,80,164,0.35)]">
+                <h1 className="headline-sheen text-6xl md:text-7xl font-bold mb-8 leading-tight tracking-tighter drop-shadow-[0_10px_40px_rgba(15, 118, 110,0.35)]">
                   Custom AI <br />
                   <span className="headline-accent">Automation Systems.</span>
                 </h1>
@@ -141,7 +141,7 @@ export default function EcosystemPage() {
           </ParallaxFloat>
           <Reveal className="mb-20">
             <h2 className="h2-sheen text-4xl md:text-5xl font-bold mb-6 tracking-tight">Selected Projects</h2>
-            <div className="w-24 h-1.5 bg-primary rounded-full shadow-[0_0_10px_#cfbcff]"></div>
+            <div className="w-24 h-1.5 bg-primary rounded-full shadow-[0_0_10px_#5eead4]"></div>
           </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[

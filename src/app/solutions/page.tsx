@@ -26,12 +26,12 @@ export default function SolutionsPage() {
             <HeroIntro>
               <HeroItem>
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-md mb-12">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#cfbcff]"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#5eead4]"></span>
                   <span className="font-bold text-[10px] text-primary tracking-widest">Enterprise Automation</span>
                 </div>
               </HeroItem>
               <HeroItem>
-                <h1 className="headline-sheen text-6xl md:text-7xl font-bold mb-8 max-w-4xl mx-auto leading-tight tracking-tighter drop-shadow-[0_10px_40px_rgba(103,80,164,0.35)]">
+                <h1 className="headline-sheen text-6xl md:text-7xl font-bold mb-8 max-w-4xl mx-auto leading-tight tracking-tighter drop-shadow-[0_10px_40px_rgba(15, 118, 110,0.35)]">
                   AI Powered Business Infrastructure
                 </h1>
               </HeroItem>
@@ -147,7 +147,7 @@ export default function SolutionsPage() {
         <section className="py-section-gap bg-surface-container-lowest/60">
           <div className="max-w-container-max px-margin-page mx-auto grid md:grid-cols-2 gap-24 items-center">
             <Reveal>
-              <TiltCard max={4} className="glass-card rounded-3xl p-1 overflow-hidden group border-secondary/20 shadow-[0_0_80px_rgba(207,188,255,0.05)]">
+              <TiltCard max={4} className="glass-card rounded-3xl p-1 overflow-hidden group border-secondary/20 shadow-[0_0_80px_rgba(94, 234, 212,0.05)]">
                 <img
                   className="kenburns w-full h-full object-cover rounded-3xl opacity-70 group-hover:opacity-90 transition-opacity aspect-square"
                   alt="AI Voice Agent Automation"
@@ -241,7 +241,7 @@ export default function SolutionsPage() {
           <Reveal className="max-w-3xl mx-auto">
             <h2 className="h2-sheen text-5xl md:text-6xl font-bold mb-12 tracking-tight">Ready to Automate?</h2>
             <Magnetic className="inline-block">
-              <button className="btn-sheen px-16 py-8 bg-primary text-on-primary font-bold text-2xl rounded-2xl hover:shadow-[0_0_60px_rgba(207,188,255,0.5)] transition-all active:scale-95">
+              <button className="btn-sheen px-16 py-8 bg-primary text-on-primary font-bold text-2xl rounded-2xl hover:shadow-[0_0_60px_rgba(94, 234, 212,0.5)] transition-all active:scale-95">
                 Contact Advisory Team
               </button>
             </Magnetic>

@@ -193,8 +193,8 @@ export default function PageBackdrop() {
           ctx.beginPath();
           ctx.arc(x, p.y, p.r, 0, Math.PI * 2);
           ctx.fillStyle = p.warm
-            ? `rgba(231,195,101,${a * 0.8})`
-            : `rgba(207,188,255,${a})`;
+            ? `rgba(103, 232, 249,${a * 0.8})`
+            : `rgba(94, 234, 212,${a})`;
           ctx.fill();
         }
         ctx.globalCompositeOperation = "source-over";
@@ -218,6 +218,10 @@ export default function PageBackdrop() {
       <div className="page-dim" />
       <canvas ref={dotCanvasRef} />
       <div className="hero-noise" />
+      <div className="auto3d-shape auto3d-ring w-24 h-24 top-[14%] left-[8%]" />
+      <div className="auto3d-shape auto3d-ring-2 w-32 h-32 top-[62%] right-[10%]" />
+      <div className="auto3d-shape auto3d-diamond w-16 h-16 top-[38%] right-[22%]" />
+      <div className="auto3d-shape auto3d-ring w-14 h-14 bottom-[10%] left-[28%]" />
     </div>
   );
 }

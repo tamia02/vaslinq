@@ -19,8 +19,8 @@ export function ScrollProgress() {
   return (
     <motion.div
       aria-hidden="true"
-      className="fixed top-0 left-0 right-0 h-[3px] z-[70] origin-left bg-gradient-to-r from-primary via-[#9a7fe8] to-tertiary"
-      style={{ scaleX, boxShadow: "0 0 12px rgba(207,188,255,0.55)" }}
+      className="fixed top-0 left-0 right-0 h-[3px] z-[70] origin-left bg-gradient-to-r from-primary via-[#14b8a6] to-tertiary"
+      style={{ scaleX, boxShadow: "0 0 12px rgba(94, 234, 212,0.55)" }}
     />
   );
 }
