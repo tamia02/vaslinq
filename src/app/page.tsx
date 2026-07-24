@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import HeroBackdrop from "@/components/fx/HeroBackdrop";
 import PageBackdrop from "@/components/fx/PageBackdrop";
-import ScrollFilm from "@/components/fx/ScrollFilm";
+import HeroFilm from "@/components/fx/HeroFilm";
 import TiltCard from "@/components/fx/TiltCard";
 import Reveal from "@/components/fx/Reveal";
 import { ScrollProgress, Magnetic, ParallaxFloat, HeroIntro, HeroItem } from "@/components/fx/MotionFx";
@@ -14,7 +14,7 @@ export default function Home() {
       <Navbar />
       <main className="relative overflow-hidden">
         <ScrollProgress />
-        <ScrollFilm />
+        <HeroFilm />
         <PageBackdrop />
         {/* Hero Section */}
         <section className="relative min-h-[88vh] flex flex-col items-center justify-center text-center px-margin-page py-section-gap">
