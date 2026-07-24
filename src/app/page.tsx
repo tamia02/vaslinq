@@ -1,12 +1,10 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import Link from "next/link";
-import HeroBackdrop from "@/components/fx/HeroBackdrop";
 import PageBackdrop from "@/components/fx/PageBackdrop";
 import HeroFilm from "@/components/fx/HeroFilm";
 import TiltCard from "@/components/fx/TiltCard";
 import Reveal from "@/components/fx/Reveal";
-import { ScrollProgress, Magnetic, ParallaxFloat, HeroIntro, HeroItem } from "@/components/fx/MotionFx";
+import { ScrollProgress, ParallaxFloat } from "@/components/fx/MotionFx";
 
 export default function Home() {
   return (
@@ -16,45 +14,6 @@ export default function Home() {
         <ScrollProgress />
         <HeroFilm />
         <PageBackdrop />
-        {/* Hero Section */}
-        <section className="relative min-h-[88vh] flex flex-col items-center justify-center text-center px-margin-page py-section-gap">
-          <div className="absolute inset-0 -z-10">
-            <HeroBackdrop />
-          </div>
-          <HeroIntro className="flex flex-col items-center">
-            <HeroItem>
-              <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-primary/25 bg-primary/10 backdrop-blur-md mb-8 shadow-[0_0_24px_rgba(94, 234, 212,0.12)]">
-                <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse shadow-[0_0_8px_#5eead4]"></span>
-                <span className="font-semibold text-[10px] tracking-widest text-primary">System Health: Nominal</span>
-              </div>
-            </HeroItem>
-            <HeroItem>
-              <h1 className="headline-sheen font-bold text-6xl md:text-7xl lg:text-8xl max-w-4xl mb-8 leading-tight tracking-tighter drop-shadow-[0_10px_40px_rgba(15, 118, 110,0.35)]">
-                Building AI Systems That <span className="headline-accent font-bold">Actually Grow Businesses</span>
-              </h1>
-            </HeroItem>
-            <HeroItem>
-              <p className="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto mb-12 leading-relaxed">
-                Vaslix helps businesses automate communication, generate leads, improve conversions, and reduce manual work using AI-powered systems.
-              </p>
-            </HeroItem>
-            <HeroItem>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Magnetic>
-                  <Link href="/solutions" className="btn-sheen bg-primary text-on-primary font-bold px-8 py-4 rounded-full flex items-center justify-center gap-2 transition-all shadow-[0_10px_40px_-10px_rgba(94, 234, 212,0.5)] hover:shadow-[0_0_35px_rgba(94, 234, 212,0.55)]">
-                    Explore Our Services
-                    <span className="material-symbols-outlined">arrow_forward</span>
-                  </Link>
-                </Magnetic>
-                <Magnetic>
-                  <a href="https://calendly.com/tasmiyasiddiqui457/quick-discovery-call" target="_blank" rel="noopener noreferrer" className="btn-sheen border border-outline-variant bg-white/5 backdrop-blur-md text-on-surface font-bold px-8 py-4 rounded-full transition-all hover:bg-white/10 hover:border-primary/40 flex items-center justify-center">
-                    Book Strategy Call
-                  </a>
-                </Magnetic>
-              </div>
-            </HeroItem>
-          </HeroIntro>
-        </section>
 
         {/* Core Services Section */}
         <section className="relative px-margin-page max-w-container-max mx-auto py-section-gap">
