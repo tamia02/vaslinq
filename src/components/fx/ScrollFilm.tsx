@@ -64,7 +64,7 @@ export default function ScrollFilm() {
   }, [reduced]);
 
   return (
-    <section ref={wrapRef} className="relative" style={{ height: reduced ? "100vh" : "500vh" }}>
+    <section ref={wrapRef} className="relative" style={{ height: reduced ? "100vh" : "260vh" }}>
       <div
         className="h-screen w-full overflow-hidden bg-[#0a0f0e]"
         style={
