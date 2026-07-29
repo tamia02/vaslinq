@@ -63,7 +63,7 @@ export default function Home() {
             <Reveal className="md:col-span-8">
               <TiltCard max={4} className="glass-card rounded-2xl p-0 flex flex-col justify-between group cursor-pointer min-h-[380px] h-auto md:h-[450px] overflow-hidden border-primary/20">
                 <div className="absolute inset-0 z-0">
-                  <img src="/automation.png" alt="Automation" className="kenburns w-full h-full object-cover opacity-25 group-hover:opacity-45 transition-opacity duration-700" />
+                  <img loading="lazy" src="/automation.png" alt="Automation" className="kenburns w-full h-full object-cover opacity-25 group-hover:opacity-45 transition-opacity duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
                 </div>
                 <div className="relative z-10 p-6 sm:p-10 flex flex-col h-full justify-between">
@@ -84,7 +84,7 @@ export default function Home() {
             <Reveal delay={120} className="md:col-span-4">
               <TiltCard max={5} className="glass-card rounded-2xl p-0 flex flex-col justify-between min-h-[380px] h-auto md:h-[450px] overflow-hidden border-secondary/20 group">
                 <div className="absolute inset-0 z-0">
-                  <img src="/leads.png" alt="Leads" className="kenburns w-full h-full object-cover opacity-25 group-hover:opacity-45 transition-opacity duration-700" />
+                  <img loading="lazy" src="/leads.png" alt="Leads" className="kenburns w-full h-full object-cover opacity-25 group-hover:opacity-45 transition-opacity duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-b from-background via-background/20 to-transparent"></div>
                 </div>
                 <div className="relative z-10 p-10 flex flex-col h-full justify-between">

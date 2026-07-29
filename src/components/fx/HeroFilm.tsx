@@ -5,10 +5,11 @@ import { HeroIntro, HeroItem, Magnetic } from "@/components/fx/MotionFx";
 
 export default function HeroFilm() {
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-[#0a0f0e]">
+    <section className="relative h-dvh w-full overflow-hidden bg-[#0a0f0e]">
       <video
         className="absolute inset-0 h-full w-full object-cover"
         src="/vaslix-film.mp4"
+        poster="/vaslix-film-poster.jpg"
         autoPlay
         muted
         loop
@@ -18,7 +19,7 @@ export default function HeroFilm() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a0f0e]/60 via-[#0a0f0e]/50 to-[#0a0f0e]/90" />
       <div className="absolute inset-0 hero-noise opacity-20" />
 
-      <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-margin-page pt-20">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-margin-page pt-20 pb-24 sm:pb-0">
         <HeroIntro className="flex flex-col items-center">
           <HeroItem>
             <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 rounded-full border border-primary/25 bg-primary/10 backdrop-blur-md mb-6 sm:mb-8 shadow-[0_0_24px_rgba(94,234,212,0.12)]">

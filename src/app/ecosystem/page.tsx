@@ -46,7 +46,7 @@ export default function EcosystemPage() {
             <Reveal className="md:col-span-2">
               <TiltCard max={3} className="glass-card p-0 rounded-3xl group border-primary/20 overflow-hidden h-full">
                 <div className="h-64 overflow-hidden relative">
-                  <img src="/automation.png" alt="Custom Automation" className="kenburns w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" />
+                  <img loading="lazy" src="/automation.png" alt="Custom Automation" className="kenburns w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0b141a] to-transparent"></div>
                 </div>
                 <div className="p-12 -mt-16 relative z-10">
@@ -83,7 +83,7 @@ export default function EcosystemPage() {
             <Reveal delay={120}>
               <TiltCard max={5} className="glass-card p-12 rounded-3xl border-secondary/20 flex flex-col justify-center text-center overflow-hidden group h-full">
                 <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity -z-10">
-                  <img src="/leads.png" alt="Leads" className="kenburns w-full h-full object-cover" />
+                  <img loading="lazy" src="/leads.png" alt="Leads" className="kenburns w-full h-full object-cover" />
                 </div>
                 <div className="text-xs font-bold text-secondary tracking-widest mb-4 uppercase">Custom Pricing</div>
                 <div className="text-4xl font-bold text-on-surface mb-2">₹30,000 – ₹80,000</div>
@@ -119,7 +119,7 @@ export default function EcosystemPage() {
               </Reveal>
               <Reveal delay={120}>
                 <TiltCard max={4} className="glass-card p-0 rounded-3xl border-outline-variant/30 flex items-center justify-center overflow-hidden group h-full">
-                  <img src="/leads.png" alt="Lead Generation" className="kenburns w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity" />
+                  <img loading="lazy" src="/leads.png" alt="Lead Generation" className="kenburns w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity" />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0b141a]"></div>
                   <div className="absolute bottom-12 left-12 right-12 text-center">
                     <div className="icon-glow w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-8 border border-primary/20">
