@@ -31,7 +31,7 @@ export default function SolutionsPage() {
                 </div>
               </HeroItem>
               <HeroItem>
-                <h1 className="headline-sheen text-6xl md:text-7xl font-bold mb-8 max-w-4xl mx-auto leading-tight tracking-tighter drop-shadow-[0_10px_40px_rgba(15, 118, 110,0.35)]">
+                <h1 className="headline-sheen text-4xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 max-w-4xl mx-auto leading-tight tracking-tighter drop-shadow-[0_10px_40px_rgba(15, 118, 110,0.35)]">
                   AI Powered Business Infrastructure
                 </h1>
               </HeroItem>

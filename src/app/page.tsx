@@ -61,17 +61,17 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
             {/* Custom Automation */}
             <Reveal className="md:col-span-8">
-              <TiltCard max={4} className="glass-card rounded-2xl p-0 flex flex-col justify-between group cursor-pointer h-[450px] overflow-hidden border-primary/20">
+              <TiltCard max={4} className="glass-card rounded-2xl p-0 flex flex-col justify-between group cursor-pointer min-h-[380px] h-auto md:h-[450px] overflow-hidden border-primary/20">
                 <div className="absolute inset-0 z-0">
                   <img src="/automation.png" alt="Automation" className="kenburns w-full h-full object-cover opacity-25 group-hover:opacity-45 transition-opacity duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
                 </div>
-                <div className="relative z-10 p-10 flex flex-col h-full justify-between">
-                  <div className="flex justify-between items-start">
+                <div className="relative z-10 p-6 sm:p-10 flex flex-col h-full justify-between">
+                  <div className="flex flex-col sm:flex-row sm:justify-between items-start gap-3 sm:gap-0">
                     <div className="icon-glow p-4 rounded-xl bg-primary/10 border border-primary/20 backdrop-blur-md">
                       <span className="material-symbols-outlined text-primary text-4xl">settings_suggest</span>
                     </div>
-                    <span className="font-bold text-xs tracking-widest text-primary">Custom AI Automation Systems</span>
+                    <span className="font-bold text-xs tracking-widest text-primary sm:text-right">Custom AI Automation Systems</span>
                   </div>
                   <div>
                     <h3 className="text-3xl font-bold mb-4 tracking-tight">Tailored Business Workflows</h3>
@@ -82,7 +82,7 @@ export default function Home() {
             </Reveal>
             {/* Lead Gen */}
             <Reveal delay={120} className="md:col-span-4">
-              <TiltCard max={5} className="glass-card rounded-2xl p-0 flex flex-col justify-between h-[450px] overflow-hidden border-secondary/20 group">
+              <TiltCard max={5} className="glass-card rounded-2xl p-0 flex flex-col justify-between min-h-[380px] h-auto md:h-[450px] overflow-hidden border-secondary/20 group">
                 <div className="absolute inset-0 z-0">
                   <img src="/leads.png" alt="Leads" className="kenburns w-full h-full object-cover opacity-25 group-hover:opacity-45 transition-opacity duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-b from-background via-background/20 to-transparent"></div>
@@ -196,11 +196,11 @@ export default function Home() {
           href="https://wa.me/919453283929"
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-10 right-10 z-[60] w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_10px_40px_rgba(37,211,102,0.4)] hover:scale-110 active:scale-95 transition-all group"
+          className="fixed bottom-5 right-5 sm:bottom-10 sm:right-10 z-[60] w-12 h-12 sm:w-16 sm:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_10px_40px_rgba(37,211,102,0.4)] hover:scale-110 active:scale-95 transition-all group"
         >
           <span aria-hidden="true" className="absolute inset-0 rounded-full bg-[#25D366]/40 animate-ping"></span>
-          <span className="material-symbols-outlined text-white text-3xl group-hover:animate-bounce">chat</span>
-          <div className="absolute right-20 bg-white text-black px-4 py-2 rounded-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap shadow-xl pointer-events-none">
+          <span className="material-symbols-outlined text-white text-xl sm:text-3xl group-hover:animate-bounce">chat</span>
+          <div className="absolute right-14 sm:right-20 bg-white text-black px-4 py-2 rounded-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap shadow-xl pointer-events-none hidden sm:block">
             Chat with us
           </div>
         </a>

@@ -31,7 +31,7 @@ export default function ExtendedPage() {
                 </div>
               </HeroItem>
               <HeroItem>
-                <h1 className="headline-sheen text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-[1.05] tracking-tighter drop-shadow-[0_10px_40px_rgba(15, 118, 110,0.35)]">
+                <h1 className="headline-sheen text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 sm:mb-8 leading-[1.05] tracking-tighter drop-shadow-[0_10px_40px_rgba(15, 118, 110,0.35)]">
                   Futuristic 3D Websites & <br/>
                   <span className="headline-accent">SaaS Platforms.</span>
                 </h1>
@@ -94,7 +94,7 @@ export default function ExtendedPage() {
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Reveal className="md:col-span-2">
-                <TiltCard max={3} className="glass-card p-0 rounded-3xl group overflow-hidden border-primary/20 h-[500px]">
+                <TiltCard max={3} className="glass-card p-0 rounded-3xl group overflow-hidden border-primary/20 min-h-[380px] h-auto md:h-[500px]">
                   <img src="/ads.png" alt="Meta Ads Automation" className="kenburns w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#04100e] via-[#04100e]/40 to-transparent"></div>
                   <div className="absolute bottom-12 left-12 right-12">

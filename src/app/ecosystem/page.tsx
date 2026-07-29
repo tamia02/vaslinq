@@ -26,7 +26,7 @@ export default function EcosystemPage() {
                 <span className="inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-md text-primary text-[10px] font-bold tracking-widest mb-8">Service Ecosystem</span>
               </HeroItem>
               <HeroItem>
-                <h1 className="headline-sheen text-6xl md:text-7xl font-bold mb-8 leading-tight tracking-tighter drop-shadow-[0_10px_40px_rgba(15, 118, 110,0.35)]">
+                <h1 className="headline-sheen text-4xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 leading-tight tracking-tighter drop-shadow-[0_10px_40px_rgba(15, 118, 110,0.35)]">
                   Custom AI <br />
                   <span className="headline-accent">Automation Systems.</span>
                 </h1>
