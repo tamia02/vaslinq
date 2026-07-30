@@ -9,11 +9,47 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Vaslix | AI Automation Agency",
   description: "Learn about Vaslix, our mission, our expertise in AI automation and web design, and why businesses trust us to scale their operations.",
+  alternates: {
+    canonical: 'https://vaslix.com/about',
+  },
 };
 
 export default function AboutPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "name": "Tasmiya Siddiqui",
+        "jobTitle": "Founder & AI Strategist",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Vaslix"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://vaslix.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "https://vaslix.com/about"
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Navbar />
       <main className="relative overflow-hidden pt-20">
         <ScrollProgress />
@@ -85,6 +121,36 @@ export default function AboutPage() {
                       </div>
                     </div>
                   ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Leadership */}
+        <section className="py-section-gap px-margin-page bg-surface-container-lowest/60">
+          <div className="max-w-container-max mx-auto">
+            <Reveal>
+              <div className="flex flex-col md:flex-row gap-12 items-center">
+                <div className="w-full md:w-1/3">
+                  <div className="aspect-[4/5] rounded-[32px] overflow-hidden glass-card p-2 border-primary/20">
+                    <div className="w-full h-full bg-white/5 rounded-[24px] flex items-center justify-center">
+                      <span className="material-symbols-outlined text-primary/40 text-[100px]">person</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full md:w-2/3 space-y-6">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-md mb-2">
+                    <span className="font-bold text-[10px] text-primary tracking-widest uppercase">Leadership</span>
+                  </div>
+                  <h2 className="text-4xl font-bold tracking-tight">Tasmiya Siddiqui</h2>
+                  <h3 className="text-xl text-primary font-medium">Founder & AI Strategist</h3>
+                  <p className="text-on-surface-variant text-lg leading-relaxed max-w-2xl">
+                    With a background in building complex automation pipelines, Tasmiya founded Vaslix to bridge the gap between high-level AI capabilities and real-world business operations. Her focus is on architecting systems that deliver measurable revenue impact rather than just technical novelty.
+                  </p>
+                  <p className="text-on-surface-variant text-lg leading-relaxed max-w-2xl">
+                    She leads the agency's strategy, ensuring every client receives a bespoke solution tailored to their specific industry bottlenecks.
+                  </p>
                 </div>
               </div>
             </Reveal>

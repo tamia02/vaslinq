@@ -9,11 +9,48 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AI Chatbots & Voice Agents for Business | Vaslix",
   description: "Deploy human-like AI voice agents and smart WhatsApp chatbots to handle customer support, book appointments, and qualify leads 24/7.",
+  alternates: {
+    canonical: 'https://vaslix.com/solutions',
+  },
 };
 
 export default function SolutionsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "provider": {
+          "@type": "Organization",
+          "name": "Vaslix",
+          "url": "https://vaslix.com"
+        },
+        "name": "AI Chatbots & Voice Agents",
+        "description": "Smart WhatsApp chatbots and human-like AI voice agents capable of handling inbound/outbound calls, CRM syncing, and multi-language support."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://vaslix.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Solutions",
+            "item": "https://vaslix.com/solutions"
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Navbar />
       <main className="relative overflow-hidden pt-20">
         <ScrollProgress />

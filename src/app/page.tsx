@@ -10,6 +10,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Vaslix | AI Automation Agency & B2B Infrastructure",
   description: "Vaslix is an AI automation agency building custom voice/chat assistants, lead generation systems, and futuristic 3D platforms for B2B brands.",
+  alternates: {
+    canonical: 'https://vaslix.com',
+  },
 };
 
 export default function Home() {
@@ -21,6 +24,11 @@ export default function Home() {
         "name": "Vaslix",
         "url": "https://vaslix.com",
         "logo": "https://vaslix.com/icon.png",
+        "sameAs": [
+          "https://www.linkedin.com/company/vaslix",
+          "https://clutch.co/profile/vaslix",
+          "https://www.goodfirms.co/company/vaslix"
+        ],
         "contactPoint": {
           "@type": "ContactPoint",
           "email": "hello@vaslix.in",
@@ -36,6 +44,15 @@ export default function Home() {
         },
         "name": "AI Automation Agency",
         "description": "Custom AI voice/chat assistants, lead generation systems, and futuristic 3D platforms for B2B brands."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vaslix.com"
+        }]
       }
     ]
   };

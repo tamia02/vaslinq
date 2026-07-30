@@ -9,6 +9,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Vaslix | Request a Strategy Briefing",
   description: "Get in touch with Vaslix to discuss your AI automation roadmap, lead generation pipelines, and futuristic 3D web platforms.",
+  alternates: {
+    canonical: 'https://vaslix.com/contact',
+  },
 };
 
 export default function ContactPage() {

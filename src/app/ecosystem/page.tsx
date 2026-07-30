@@ -9,11 +9,48 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Custom AI Automation Systems & Lead Generation | Vaslix",
   description: "We build fully customized AI automation workflows, lead generation pipelines, and AI content systems that save time and scale revenue.",
+  alternates: {
+    canonical: 'https://vaslix.com/ecosystem',
+  },
 };
 
 export default function EcosystemPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "provider": {
+          "@type": "Organization",
+          "name": "Vaslix",
+          "url": "https://vaslix.com"
+        },
+        "name": "Custom AI Automation Systems",
+        "description": "Fully customized automation systems tailored for business workflows. Includes sales pipelines, CRM automation, and AI content generation."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://vaslix.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Ecosystem",
+            "item": "https://vaslix.com/ecosystem"
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Navbar />
       <main className="relative overflow-hidden pt-20">
         <ScrollProgress />

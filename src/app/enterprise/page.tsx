@@ -9,11 +9,48 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Premium 3D Websites, SaaS Platforms & Meta Ads | Vaslix",
   description: "Futuristic 3D web design, high-performance SaaS interfaces, and AI-driven Meta Ads infrastructure for startups and luxury brands.",
+  alternates: {
+    canonical: 'https://vaslix.com/enterprise',
+  },
 };
 
 export default function ExtendedPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "provider": {
+          "@type": "Organization",
+          "name": "Vaslix",
+          "url": "https://vaslix.com"
+        },
+        "name": "Enterprise 3D Websites & SaaS Platforms",
+        "description": "Interactive 3D interfaces and high-performance SaaS platforms. Includes AI-driven Meta Ads infrastructure and CRM operations."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://vaslix.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Enterprise",
+            "item": "https://vaslix.com/enterprise"
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Navbar />
       <main className="relative overflow-hidden">
         <ScrollProgress />
