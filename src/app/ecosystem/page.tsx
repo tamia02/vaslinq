@@ -4,6 +4,12 @@ import PageBackdrop from "@/components/fx/PageBackdrop";
 import TiltCard from "@/components/fx/TiltCard";
 import Reveal from "@/components/fx/Reveal";
 import { ScrollProgress, Magnetic, ParallaxFloat, HeroIntro, HeroItem } from "@/components/fx/MotionFx";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Custom AI Automation Systems & Lead Generation | Vaslix",
+  description: "We build fully customized AI automation workflows, lead generation pipelines, and AI content systems that save time and scale revenue.",
+};
 
 export default function EcosystemPage() {
   return (

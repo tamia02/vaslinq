@@ -4,6 +4,12 @@ import PageBackdrop from "@/components/fx/PageBackdrop";
 import TiltCard from "@/components/fx/TiltCard";
 import Reveal from "@/components/fx/Reveal";
 import { ScrollProgress, Magnetic, ParallaxFloat, HeroIntro, HeroItem } from "@/components/fx/MotionFx";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Premium 3D Websites, SaaS Platforms & Meta Ads | Vaslix",
+  description: "Futuristic 3D web design, high-performance SaaS interfaces, and AI-driven Meta Ads infrastructure for startups and luxury brands.",
+};
 
 export default function ExtendedPage() {
   return (

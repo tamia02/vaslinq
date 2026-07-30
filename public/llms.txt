@@ -1,0 +1,18 @@
+# Vaslix - AI Automation Agency
+
+Vaslix is a B2B AI automation agency specializing in building custom business infrastructure.
+
+## Core Services
+
+- **AI WhatsApp Chatbots**: Smart assistants trained specifically for businesses to reply instantly, qualify leads, and book appointments. They include LLM integration, CRM syncing, voice note support, and multi-language capabilities.
+- **AI Voice Calling Agents**: AI receptionists capable of handling inbound and outbound calls like a human, supporting multiple languages. They can book appointments, handle support, and sync with CRMs in real-time.
+- **Premium 3D Websites & SaaS Platforms**: Futuristic, interactive 3D interfaces designed to help brands stand out. We provide ultra-fast performance, revenue-focused UX strategy, and AI-first integration.
+- **Lead Generation & Data Scraping**: Highly targeted lead pipelines using email scraping, LinkedIn lead gen, and contact database building.
+- **AI Content Systems**: Automated creation of social media content, ad creatives, and personalized marketing copy.
+- **Meta Ads & AI Ad Creatives**: High-converting ad funnels maximizing ROAS with dynamic AI-generated visual assets and copy.
+- **CRM Systems & Operations**: Custom tracking, team dashboards, automated reminders, and smart forecasting.
+
+## Contact Information
+- Email: hello@vaslix.in
+- WhatsApp: +91 9453283929
+- Booking: https://calendly.com/tasmiyasiddiqui457/quick-discovery-call

@@ -5,10 +5,47 @@ import HeroFilm from "@/components/fx/HeroFilm";
 import TiltCard from "@/components/fx/TiltCard";
 import Reveal from "@/components/fx/Reveal";
 import { ScrollProgress, ParallaxFloat } from "@/components/fx/MotionFx";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Vaslix | AI Automation Agency & B2B Infrastructure",
+  description: "Vaslix is an AI automation agency building custom voice/chat assistants, lead generation systems, and futuristic 3D platforms for B2B brands.",
+};
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Vaslix",
+        "url": "https://vaslix.com",
+        "logo": "https://vaslix.com/icon.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "hello@vaslix.in",
+          "telephone": "+91-9453283929",
+          "contactType": "customer service"
+        }
+      },
+      {
+        "@type": "Service",
+        "provider": {
+          "@type": "Organization",
+          "name": "Vaslix"
+        },
+        "name": "AI Automation Agency",
+        "description": "Custom AI voice/chat assistants, lead generation systems, and futuristic 3D platforms for B2B brands."
+      }
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       <main className="relative overflow-hidden">
         <ScrollProgress />

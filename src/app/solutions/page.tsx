@@ -4,6 +4,12 @@ import PageBackdrop from "@/components/fx/PageBackdrop";
 import TiltCard from "@/components/fx/TiltCard";
 import Reveal from "@/components/fx/Reveal";
 import { ScrollProgress, Magnetic, ParallaxFloat, HeroIntro, HeroItem } from "@/components/fx/MotionFx";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "AI Chatbots & Voice Agents for Business | Vaslix",
+  description: "Deploy human-like AI voice agents and smart WhatsApp chatbots to handle customer support, book appointments, and qualify leads 24/7.",
+};
 
 export default function SolutionsPage() {
   return (

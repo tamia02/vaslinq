@@ -8,8 +8,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Vaslix | AI-Powered Business Infrastructure",
-  description: "The backbone of the decentralized AI economy. Global intelligence, distributed.",
+  title: "Vaslix | AI Automation Agency & Business Infrastructure",
+  description: "Vaslix is an AI automation agency building custom voice/chat assistants, lead generation systems, and futuristic 3D platforms for B2B brands.",
 };
 
 export default function RootLayout({
