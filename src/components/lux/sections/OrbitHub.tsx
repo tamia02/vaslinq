@@ -30,7 +30,7 @@ function Ring({ items, radius, duration, reverse = false }: { items: typeof INNE
           <div key={it.label} className="absolute" style={{ left: radius + Math.cos(a) * radius, top: radius + Math.sin(a) * radius }}>
             <motion.div className="-translate-x-1/2 -translate-y-1/2" animate={counter} transition={t}>
               <motion.span
-                className="flex items-center gap-2 whitespace-nowrap rounded-full border border-white bg-white/90 px-3.5 py-2 text-[13px] font-semibold text-ink shadow-[0_10px_30px_-12px_rgba(58,34,199,0.45)] backdrop-blur"
+                className="flex items-center gap-2 whitespace-nowrap rounded-full border border-white bg-white/90 px-3.5 py-2 text-[13px] font-semibold text-ink shadow-[0_10px_30px_-12px_rgba(58,34,199,0.45)]"
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}

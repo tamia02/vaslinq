@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { CALENDLY, NAV, SERVICES } from "./links";
 import { LogoMark, Wordmark } from "./Logo";
@@ -18,12 +18,18 @@ export default function LuxNav() {
   const [hover, setHover] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  // Read scroll once per frame (framer batches it) and only touch React state
+  // when the threshold actually flips — a raw scroll listener re-rendered the
+  // whole nav on every scroll event.
+  const { scrollY } = useScroll();
+  const scrolledRef = useRef(false);
+  useMotionValueEvent(scrollY, "change", (y) => {
+    const next = y > 24;
+    if (next !== scrolledRef.current) {
+      scrolledRef.current = next;
+      setScrolled(next);
+    }
+  });
 
   useEffect(() => {
     setOpen(false);
@@ -54,7 +60,7 @@ export default function LuxNav() {
       <nav
         aria-label="Primary"
         className={`relative mx-auto flex max-w-6xl items-center justify-between rounded-full py-2 pl-2.5 pr-2 transition-all duration-500 ${
-          scrolled || open || mega ? "lux-glass" : "bg-transparent"
+          scrolled || open || mega ? "lux-nav-glass" : "bg-transparent"
         }`}
       >
         <Link href="/" className="group flex items-center gap-2.5 rounded-full pr-2" aria-label="Vaslix home">
@@ -135,7 +141,7 @@ export default function LuxNav() {
               onPointerEnter={openMega}
               onPointerLeave={closeMega}
             >
-              <div className="grid grid-cols-[1.4fr_1fr] overflow-hidden rounded-[28px] border border-white bg-white/95 shadow-[0_40px_80px_-30px_rgba(58,34,199,0.35)] backdrop-blur-xl">
+              <div className="grid grid-cols-[1.4fr_1fr] overflow-hidden rounded-[28px] border border-white bg-white/95 shadow-[0_40px_80px_-30px_rgba(58,34,199,0.35)]">
                 <div className="p-6">
                   <p className="border-b border-line pb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-ink-mute">What we build</p>
                   <ul className="mt-3 space-y-1">

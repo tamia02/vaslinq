@@ -93,7 +93,7 @@ export default function StepTabs({ steps }: { steps: Step[] }) {
 
       <div className="relative overflow-hidden rounded-[32px] border border-white bg-gradient-to-br from-[#e9f7f1] via-lilac to-[#e4ebff] p-6 sm:p-10 lg:col-span-7">
         <div aria-hidden="true" className="absolute inset-0 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.35)_0,rgba(255,255,255,0.35)_1px,transparent_1px,transparent_80px)]" />
-        <div className="relative grid min-h-[420px] place-items-center rounded-[24px] border border-white/60 bg-white/35 p-6 backdrop-blur-sm">
+        <div className="relative grid min-h-[420px] place-items-center rounded-[24px] border border-white/60 bg-white/45 p-6">
           <AnimatePresence mode="wait">
             <motion.div
               key={active}

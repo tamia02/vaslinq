@@ -1,7 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { FEATURED, MORE_WORK } from "../work";
 import RevealLines from "../motion/RevealLines";
 
@@ -11,20 +11,22 @@ const STORIES = [...FEATURED, MORE_WORK[0], MORE_WORK[1]];
 // one exists in work.ts; otherwise tells the story of what we built for them.
 export default function ClientStories() {
   const reduced = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+  const inView = useInView(sectionRef);
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
   const n = STORIES.length;
 
   useEffect(() => {
-    if (reduced || paused) return;
+    if (reduced || paused || !inView) return;
     const t = setInterval(() => setI((v) => (v + 1) % n), 6000);
     return () => clearInterval(t);
-  }, [reduced, paused, n]);
+  }, [reduced, paused, inView, n]);
 
   const s = STORIES[i];
 
   return (
-    <section className="relative overflow-hidden bg-paper py-28 lg:py-36" aria-roledescription="carousel" aria-label="Client stories">
+    <section ref={sectionRef} className="relative overflow-hidden bg-paper py-28 lg:py-36" aria-roledescription="carousel" aria-label="Client stories">
       <div className="mx-auto grid max-w-6xl gap-14 px-6 sm:px-8 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
           <p className="lux-eyebrow">Client stories</p>

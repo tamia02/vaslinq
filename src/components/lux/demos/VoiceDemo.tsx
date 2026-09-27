@@ -1,29 +1,33 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const LANGS = ["English", "हिन्दी", "العربية", "Regional"];
 const HEIGHTS = [18, 34, 52, 28, 64, 40, 22, 58, 36, 70, 30, 48, 24, 60, 38, 20, 44, 66, 32, 50, 26, 56, 36, 18];
 
 // Live-call card: animated waveform, ticking timer and rotating language chip.
 export default function VoiceDemo() {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref);
   const [sec, setSec] = useState(47);
   const [lang, setLang] = useState(0);
 
   useEffect(() => {
+    if (!inView) return;
     const t = setInterval(() => setSec((s) => s + 1), 1000);
     const l = setInterval(() => setLang((v) => (v + 1) % LANGS.length), 2400);
     return () => {
       clearInterval(t);
       clearInterval(l);
     };
-  }, []);
+  }, [inView]);
 
   const mm = String(Math.floor(sec / 60)).padStart(2, "0");
   const ss = String(sec % 60).padStart(2, "0");
 
   return (
-    <div className="lux-card relative overflow-hidden !rounded-[32px] p-8 sm:p-10">
+    <div ref={ref} className="lux-card relative overflow-hidden !rounded-[32px] p-8 sm:p-10">
       <div aria-hidden="true" className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-violet/15 blur-3xl" />
       <div className="relative flex items-center justify-between">
         <div className="flex items-center gap-3">

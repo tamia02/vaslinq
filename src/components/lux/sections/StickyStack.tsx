@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
-import { useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 export type StackItem = {
   eyebrow: string;
@@ -12,8 +12,8 @@ export type StackItem = {
   visual: ReactNode;
 };
 
-function Card({ item, i, n, progress }: { item: StackItem; i: number; n: number; progress: MotionValue<number> }) {
-  const reduced = useReducedMotion();
+function Card({ item, i, n, progress, fx }: { item: StackItem; i: number; n: number; progress: MotionValue<number>; fx: boolean }) {
+  const reduced = useReducedMotion() || !fx;
   // Each card shrinks back a little as later cards slide over it.
   const target = 1 - (n - 1 - i) * 0.035;
   const scale = useTransform(progress, [i / n, 1], [1, target]);
@@ -22,7 +22,7 @@ function Card({ item, i, n, progress }: { item: StackItem; i: number; n: number;
   return (
     <div className="sticky" style={{ top: `calc(104px + ${i * 16}px)` }}>
       <motion.article
-        className="relative origin-top overflow-hidden rounded-[32px] border border-white/60 shadow-[0_30px_80px_-40px_rgba(17,14,36,0.35)]"
+        className="relative origin-top overflow-hidden rounded-[32px] will-change-transform border border-white/60 shadow-[0_30px_80px_-40px_rgba(17,14,36,0.35)]"
         style={{ background: item.tone, scale: reduced ? 1 : scale }}
       >
         <motion.div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ink" style={{ opacity: reduced ? 0 : dim }} />
@@ -33,7 +33,7 @@ function Card({ item, i, n, progress }: { item: StackItem; i: number; n: number;
             <p className="mt-4 max-w-md text-[17px] leading-[1.65] text-ink/75">{item.desc}</p>
             <ul className="mt-8 grid max-w-md grid-cols-1 gap-2.5 sm:grid-cols-2">
               {item.chips.map((c) => (
-                <li key={c.label} className="flex items-center gap-2.5 rounded-xl border border-ink/15 bg-white/55 px-3 py-2.5 text-[13.5px] font-medium text-ink backdrop-blur">
+                <li key={c.label} className="flex items-center gap-2.5 rounded-xl border border-ink/15 bg-white/70 px-3 py-2.5 text-[13.5px] font-medium text-ink">
                   <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-white text-violet shadow-sm">
                     <span className="material-symbols-outlined text-[16px]" aria-hidden="true">{c.icon}</span>
                   </span>
@@ -42,7 +42,7 @@ function Card({ item, i, n, progress }: { item: StackItem; i: number; n: number;
               ))}
             </ul>
           </div>
-          <div className="flex justify-center rounded-[26px] bg-white/45 p-6 backdrop-blur-sm sm:p-10">{item.visual}</div>
+          <div className="flex justify-center rounded-[26px] bg-white/50 p-6 sm:p-10">{item.visual}</div>
         </div>
       </motion.article>
     </div>
@@ -54,10 +54,14 @@ function Card({ item, i, n, progress }: { item: StackItem; i: number; n: number;
 export default function StickyStack({ items }: { items: StackItem[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
+  // The scale-back depth effect is desktop-only; on phones the cards still pin
+  // and stack, just without per-frame transforms on large panels.
+  const [fx, setFx] = useState(false);
+  useEffect(() => setFx(window.matchMedia("(min-width: 1024px)").matches), []);
   return (
     <div ref={ref} className="relative flex flex-col gap-[14vh] pb-[6vh]">
       {items.map((it, i) => (
-        <Card key={it.title} item={it} i={i} n={items.length} progress={scrollYProgress} />
+        <Card key={it.title} item={it} i={i} n={items.length} progress={scrollYProgress} fx={fx} />
       ))}
     </div>
   );

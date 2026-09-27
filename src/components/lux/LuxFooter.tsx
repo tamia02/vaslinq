@@ -184,7 +184,7 @@ export default function LuxFooter() {
       <div className="relative overflow-hidden">
         <motion.div
           aria-hidden="true"
-          className="lux-wordmark select-none text-center"
+          className="lux-wordmark select-none text-center will-change-transform"
           style={reduced ? undefined : { y: markY }}
         >
           Vaslix

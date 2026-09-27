@@ -55,8 +55,8 @@ export default function Preloader() {
     }
 
     const start = performance.now();
-    const TYPE_START = 350;
-    const TYPE_MS = 1500;
+    const TYPE_START = 250;
+    const TYPE_MS = 1000;
     let raf = 0;
     const tick = (now: number) => {
       const t = now - start;
@@ -67,8 +67,8 @@ export default function Preloader() {
       if (t < TYPE_START + TYPE_MS + 300) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
-    const toBrand = setTimeout(() => setPhase("brand"), 2250);
-    const done = setTimeout(finish, 3500);
+    const toBrand = setTimeout(() => setPhase("brand"), 1550);
+    const done = setTimeout(finish, 2650);
     return () => {
       cancelAnimationFrame(raf);
       clearTimeout(toBrand);
@@ -266,5 +266,5 @@ export default function Preloader() {
 // Seconds the hero should wait so its entrance plays as the curtain lifts.
 export function introDelay(): number {
   if (typeof document === "undefined") return 0;
-  return document.documentElement.dataset.intro === "seen" ? 0 : 3.45;
+  return document.documentElement.dataset.intro === "seen" ? 0 : 2.6;
 }

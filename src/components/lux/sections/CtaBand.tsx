@@ -12,7 +12,6 @@ export default function CtaBand({
     <section className="mx-auto max-w-6xl px-4 py-24 sm:px-8 lg:py-32">
       <FadeIn>
         <div className="lux-band grid items-center gap-4 p-8 sm:p-14 lg:grid-cols-2">
-          <div aria-hidden="true" className="lux-grain opacity-40" />
           <div className="relative">
             <h2 className="display text-[clamp(34px,4.4vw,56px)] font-bold">{title}</h2>
             <p className="mt-5 max-w-md text-[18px] leading-[1.6] text-white/85">{sub}</p>

@@ -14,7 +14,7 @@ import * as THREE from "three";
 
 export type Shape = "knot" | "crystal" | "ring" | "block" | "orb";
 
-type Props = { active: boolean; reduced: boolean; shape?: Shape };
+type Props = { active: boolean; reduced: boolean; shape?: Shape; onReady?: () => void };
 
 // One glass object per page: knot (home), crystal (AI agents), ring
 // (automation), block (software), orb (about / studio).
@@ -47,7 +47,7 @@ function Agent({ radius, speed, offset, size, color, tilt }: {
     ref.current.position.set(Math.cos(t) * radius, Math.sin(t) * radius * tilt, Math.sin(t) * radius * 0.6);
   });
   return (
-    <mesh ref={ref} castShadow>
+    <mesh ref={ref}>
       <sphereGeometry args={[size, 48, 48]} />
       <meshPhysicalMaterial color={color} roughness={0.12} metalness={0.25} clearcoat={1} clearcoatRoughness={0.1} />
     </mesh>
@@ -76,9 +76,9 @@ function Sculpture({ reduced, shape }: { reduced: boolean; shape: Shape }) {
     <group ref={group}>
       <Float speed={reduced ? 0 : 1.4} rotationIntensity={0.25} floatIntensity={0.8}>
         {shape === "block" ? (
-          <RoundedBox ref={knot} args={[1.9, 1.9, 1.9]} radius={0.38} smoothness={6} castShadow>
+          <RoundedBox ref={knot} args={[1.9, 1.9, 1.9]} radius={0.38} smoothness={6}>
           <MeshTransmissionMaterial
-            background={new THREE.Color("#f6f5fb")}
+            background={PEARL}
             color="#cfc4ff"
             thickness={1.4}
             roughness={0.06}
@@ -92,15 +92,15 @@ function Sculpture({ reduced, shape }: { reduced: boolean; shape: Shape }) {
             iridescence={1}
             iridescenceIOR={1.3}
             iridescenceThicknessRange={[100, 800]}
-            samples={6}
-            resolution={512}
+            samples={4}
+            resolution={256}
           />
           </RoundedBox>
         ) : (
-          <mesh ref={knot} castShadow>
+          <mesh ref={knot}>
             <Geometry shape={shape} />
           <MeshTransmissionMaterial
-            background={new THREE.Color("#f6f5fb")}
+            background={PEARL}
             color="#cfc4ff"
             thickness={1.4}
             roughness={0.06}
@@ -114,8 +114,8 @@ function Sculpture({ reduced, shape }: { reduced: boolean; shape: Shape }) {
             iridescence={1}
             iridescenceIOR={1.3}
             iridescenceThicknessRange={[100, 800]}
-            samples={6}
-            resolution={512}
+            samples={4}
+            resolution={256}
           />
           </mesh>
         )}
@@ -134,19 +134,26 @@ function Sculpture({ reduced, shape }: { reduced: boolean; shape: Shape }) {
   );
 }
 
-export default function HeroScene({ active, reduced, shape = "knot" }: Props) {
+const PEARL = new THREE.Color("#f6f5fb");
+
+export default function HeroScene({ active, reduced, shape = "knot", onReady }: Props) {
   return (
     <Canvas
       frameloop={active ? "always" : "demand"}
-      dpr={[1, 1.75]}
+      dpr={[1, 1.5]}
       camera={{ position: [0, 0, 7.4], fov: 38 }}
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-      shadows
+      onCreated={({ gl }) => {
+        // Skip the synchronous shader-error readback that stalls the main
+        // thread for ~1s while the glass shader compiles.
+        gl.debug.checkShaderErrors = false;
+        requestAnimationFrame(() => onReady?.());
+      }}
     >
       <ambientLight intensity={0.6} />
-      <directionalLight position={[4, 6, 5]} intensity={1.6} castShadow />
+      <directionalLight position={[4, 6, 5]} intensity={1.6} />
       <Sculpture reduced={reduced} shape={shape} />
-      <ContactShadows position={[0, -2.2, 0]} opacity={0.35} scale={9} blur={2.6} far={4} color="#3a22c7" />
+      <ContactShadows frames={1} position={[0, -2.2, 0]} opacity={0.35} scale={9} blur={2.6} far={4} color="#3a22c7" />
       {/* Studio lighting built from light-formers, so nothing is fetched from a CDN. */}
       <Environment resolution={256}>
         <group rotation={[-Math.PI / 3, 0, 1]}>

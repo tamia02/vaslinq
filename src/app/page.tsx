@@ -147,7 +147,6 @@ export default function Home() {
       <section className="relative isolate pt-32 sm:pt-36 lg:min-h-[100svh] lg:pt-28">
         <div aria-hidden="true" className="lux-halo -z-10" />
         <div aria-hidden="true" className="lux-grid -z-10" />
-        <div aria-hidden="true" className="lux-grain -z-10" />
 
         <div className="mx-auto grid max-w-6xl items-center gap-6 px-6 sm:px-8 lg:min-h-[calc(100svh-7rem)] lg:grid-cols-12">
           <div className="lg:col-span-6">

@@ -109,7 +109,7 @@ export default function WorkShowcase({ heading = true }: { heading?: boolean }) 
         <div ref={ref} className="relative hidden lg:block" style={{ height: `${FEATURED.length * 85}vh` }}>
           <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
             <div className="mx-auto w-full max-w-6xl px-8">{head}</div>
-            <motion.div className="mt-10 flex" style={{ x, width: `${FEATURED.length * 100}%` }}>
+            <motion.div className="mt-10 flex will-change-transform" style={{ x, width: `${FEATURED.length * 100}%` }}>
               {FEATURED.map((p, i) => (
                 <div key={p.slug} className="flex justify-center px-8 xl:px-0" style={{ width: `${100 / FEATURED.length}%` }}>
                   <div className="w-full max-w-6xl">

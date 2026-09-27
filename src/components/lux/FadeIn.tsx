@@ -27,11 +27,11 @@ export default function FadeIn({ children, className = "", delay = 0, as = "div"
     return <Plain className={className}>{children}</Plain>;
   }
 
-  const target = { opacity: 1, y: 0, filter: "blur(0px)" };
+  const target = { opacity: 1, y: 0 };
   return (
     <Tag
       className={className}
-      initial={{ opacity: 0, y: 56, filter: "blur(8px)" }}
+      initial={{ opacity: 0, y: 56 }}
       {...(hero ? { animate: target } : { whileInView: target, viewport: { once: true, amount: 0.1 } })}
       transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: wait + delay / 1000 }}
     >

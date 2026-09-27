@@ -22,7 +22,6 @@ export default function PageHero({ eyebrow, lines, sub, shape, sceneLabel = "Dec
     <section className="lux-hero-panel pt-28 pb-14 sm:pt-32 lg:pb-20">
       <div aria-hidden="true" className="lux-halo -z-10" />
       <div aria-hidden="true" className="lux-grid -z-10" />
-      <div aria-hidden="true" className="lux-grain -z-10" />
       <div className={`mx-auto grid max-w-6xl items-center gap-8 px-6 sm:px-8 ${shape ? "lg:grid-cols-12" : ""}`}>
         <div className={shape ? "lg:col-span-7" : "max-w-4xl"}>
           <FadeIn hero>
@@ -37,7 +36,7 @@ export default function PageHero({ eyebrow, lines, sub, shape, sceneLabel = "Dec
           </FadeIn>
           {children && (
             <FadeIn hero delay={350} className="mt-9">
-              <div className="inline-flex max-w-full flex-col gap-4 rounded-[24px] border border-white bg-white/85 p-3 pr-5 shadow-[0_20px_50px_-30px_rgba(58,34,199,0.45)] backdrop-blur sm:flex-row sm:items-center">
+              <div className="inline-flex max-w-full flex-col gap-4 rounded-[24px] border border-white bg-white/85 p-3 pr-5 shadow-[0_20px_50px_-30px_rgba(58,34,199,0.45)] sm:flex-row sm:items-center">
                 {children}
                 <ul className="flex flex-wrap gap-x-4 gap-y-1 px-2 text-[13px] font-medium text-ink-soft sm:px-0">
                   {TRUST.map((t) => (

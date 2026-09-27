@@ -44,7 +44,7 @@ export default function Showreel() {
       </div>
       <div ref={ref} className="mt-14" style={{ perspective: 1400 }}>
         <motion.div
-          className="relative overflow-hidden rounded-[28px] border border-white bg-white p-2 shadow-[0_60px_120px_-50px_rgba(58,34,199,0.55)] sm:rounded-[36px] sm:p-3"
+          className="relative overflow-hidden rounded-[28px] will-change-transform border border-white bg-white p-2 shadow-[0_30px_60px_-30px_rgba(58,34,199,0.5)] sm:rounded-[36px] sm:p-3"
           style={reduced ? undefined : { rotateX, scale, y, transformOrigin: "center top" }}
         >
           <video
