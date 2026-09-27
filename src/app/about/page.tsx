@@ -1,164 +1,108 @@
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import PageBackdrop from "@/components/fx/PageBackdrop";
-import TiltCard from "@/components/fx/TiltCard";
-import Reveal from "@/components/fx/Reveal";
-import { ScrollProgress, ParallaxFloat, HeroIntro, HeroItem } from "@/components/fx/MotionFx";
 import { Metadata } from "next";
+import PageHero from "@/components/lux/sections/PageHero";
+import SectionHead from "@/components/lux/sections/SectionHead";
+import CtaBand from "@/components/lux/sections/CtaBand";
+import FadeIn from "@/components/lux/FadeIn";
+import TiltCard from "@/components/fx/TiltCard";
+import { LogoMark } from "@/components/lux/Logo";
 
 export const metadata: Metadata = {
-  title: "About Vaslix | AI Automation Agency",
-  description: "Learn about Vaslix, our mission, our expertise in AI automation and web design, and why businesses trust us to scale their operations.",
-  alternates: {
-    canonical: 'https://vaslix.com/about',
-  },
+  title: "About Vaslix | Custom Software & AI Automation Studio",
+  description:
+    "Vaslix is a custom software and AI automation studio founded by Tasmiya Siddiqui, building intelligent business infrastructure for startups, luxury brands and B2B companies.",
+  alternates: { canonical: "https://vaslix.com/about" },
 };
+
+const VALUES = [
+  { icon: "tune", title: "Custom logic, always", desc: "Every system is tailored to your unique business model — no off-the-shelf templates." },
+  { icon: "diamond", title: "Premium visual identity", desc: "Interfaces and 3D web experiences that make your brand stand out in a crowded market." },
+  { icon: "cable", title: "End-to-end integration", desc: "From lead capture to CRM sync and custom software, we connect every dot." },
+];
 
 export default function AboutPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "name": "Tasmiya Siddiqui",
-        "jobTitle": "Founder & AI Strategist",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Vaslix"
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://vaslix.com"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "About",
-            "item": "https://vaslix.com/about"
-          }
-        ]
-      }
-    ]
+    "@type": "Person",
+    name: "Tasmiya Siddiqui",
+    jobTitle: "Founder & AI Strategist",
+    worksFor: { "@type": "Organization", name: "Vaslix" },
   };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Navbar />
-      <main className="relative overflow-hidden pt-20">
-        <ScrollProgress />
-        <PageBackdrop />
-        {/* Hero Section */}
-        <section className="relative py-section-gap px-margin-page overflow-hidden">
-          <ParallaxFloat speed={-1} className="absolute -top-40 -right-40 w-[600px] h-[600px] -z-10">
-            <div className="ambient-blob ambient-violet inset-0"></div>
-          </ParallaxFloat>
-          <div className="relative z-10 max-w-4xl mx-auto text-center">
-            <HeroIntro>
-              <HeroItem>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-md mb-8">
-                  <span className="font-bold text-[10px] text-primary tracking-widest uppercase">About Us</span>
-                </div>
-              </HeroItem>
-              <HeroItem>
-                <h1 className="headline-sheen text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-tighter drop-shadow-[0_10px_40px_rgba(15, 118, 110,0.35)]">
-                  Building the <span className="headline-accent">Future</span> of <br/>Business Operations.
-                </h1>
-              </HeroItem>
-              <HeroItem>
-                <p className="text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
-                  Vaslix is a specialized AI automation agency focused on providing intelligent business infrastructure for startups, luxury brands, and B2B enterprises.
-                </p>
-              </HeroItem>
-            </HeroIntro>
-          </div>
-        </section>
+      <PageHero
+        eyebrow="About Vaslix"
+        shape="orb"
+        sceneLabel="Liquid glass orb"
+        lines={["Building the future", <>of <span key="a" className="serif-accent">business operations.</span></>]}
+        sub="Vaslix is a custom software and AI automation studio creating intelligent business infrastructure for startups, luxury brands and B2B enterprises."
+      />
 
-        {/* Mission & Values */}
-        <section className="py-section-gap px-margin-page max-w-container-max mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <Reveal>
-              <TiltCard max={5} className="glass-card rounded-[40px] overflow-hidden border-primary/20 shadow-[0_0_80px_rgba(94, 234, 212,0.05)] aspect-square relative flex items-center justify-center p-12 text-center group">
-                <div className="absolute inset-0 bg-primary/5 opacity-50 group-hover:opacity-100 transition-opacity"></div>
-                <div className="relative z-10 space-y-6">
-                  <div className="icon-glow w-24 h-24 mx-auto rounded-full bg-primary/10 flex items-center justify-center border border-primary/30">
-                    <span className="material-symbols-outlined text-primary text-[48px]">rocket_launch</span>
-                  </div>
-                  <h3 className="text-3xl font-bold tracking-tight">Our Mission</h3>
-                  <p className="text-on-surface-variant text-lg leading-relaxed">
-                    To eliminate manual busywork and enable businesses to scale exponentially by integrating human-like AI systems, premium 3D interfaces, and high-converting marketing funnels.
-                  </p>
-                </div>
+      <section className="mx-auto max-w-6xl px-6 py-20 sm:px-8 lg:py-28">
+        <FadeIn>
+          <div className="lux-card relative overflow-hidden !rounded-[36px] p-10 sm:p-16">
+            <div aria-hidden="true" className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-violet/10 blur-3xl" />
+            <p className="lux-eyebrow">Our mission</p>
+            <p className="display relative mt-6 max-w-4xl text-[clamp(28px,3.4vw,46px)] font-semibold leading-[1.15]">
+              To eliminate manual busywork and let businesses scale by combining{" "}
+              <span className="serif-accent">custom software, human-like AI</span> and interfaces people love to use.
+            </p>
+          </div>
+        </FadeIn>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-24 sm:px-8 lg:pb-32">
+        <SectionHead
+          eyebrow="Why Vaslix"
+          lines={["We don't just build", <>bots or <span key="a" className="serif-accent">websites.</span></>]}
+          sub="We build complete systems designed to increase revenue and streamline your day-to-day operations."
+        />
+        <ul className="mt-14 grid gap-6 md:grid-cols-3">
+          {VALUES.map((v, i) => (
+            <FadeIn as="li" key={v.title} delay={i * 80} className="h-full">
+              <TiltCard max={5} className="lux-card group h-full p-8 sm:p-9">
+                <span className="lux-icon">
+                  <span className="material-symbols-outlined text-[28px]" aria-hidden="true">{v.icon}</span>
+                </span>
+                <h3 className="mt-8 text-[22px] font-bold tracking-[-0.02em]">{v.title}</h3>
+                <p className="mt-2 leading-[1.65] text-ink-mute">{v.desc}</p>
               </TiltCard>
-            </Reveal>
-            <Reveal delay={120}>
-              <div className="space-y-12">
-                <div>
-                  <h2 className="h2-sheen text-4xl font-bold mb-6 tracking-tight">Why Choose Vaslix?</h2>
-                  <p className="text-lg text-on-surface-variant mb-8 leading-relaxed">
-                    We don't just build chatbots or websites. We build complete ecosystems designed to increase revenue and streamline your day-to-day operations.
-                  </p>
-                </div>
-                <div className="space-y-8">
-                  {[
-                    { title: "Custom Automation Logic", desc: "Every system is tailored to your unique business model." },
-                    { title: "Premium Visual Identity", desc: "Our 3D web design ensures your brand stands out in a crowded market." },
-                    { title: "End-to-End Integration", desc: "From lead capture to CRM sync, we connect all the dots." }
-                  ].map((val, idx) => (
-                    <div key={idx} className="flex gap-6 items-start">
-                      <div className="icon-glow w-12 h-12 shrink-0 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mt-1">
-                        <span className="material-symbols-outlined text-primary">check</span>
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-bold mb-2 tracking-tight text-on-surface">{val.title}</h4>
-                        <p className="text-on-surface-variant">{val.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </section>
+            </FadeIn>
+          ))}
+        </ul>
+      </section>
 
-        {/* Leadership */}
-        <section className="py-section-gap px-margin-page bg-surface-container-lowest/60">
-          <div className="max-w-container-max mx-auto">
-            <Reveal>
-              <div className="flex flex-col md:flex-row gap-12 items-center">
-                <div className="w-full md:w-1/3">
-                  <div className="aspect-[4/5] rounded-[32px] overflow-hidden glass-card p-2 border-primary/20">
-                    <div className="w-full h-full bg-white/5 rounded-[24px] flex items-center justify-center">
-                      <span className="material-symbols-outlined text-primary/40 text-[100px]">person</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="w-full md:w-2/3 space-y-6">
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-md mb-2">
-                    <span className="font-bold text-[10px] text-primary tracking-widest uppercase">Leadership</span>
-                  </div>
-                  <h2 className="text-4xl font-bold tracking-tight">Tasmiya Siddiqui</h2>
-                  <h3 className="text-xl text-primary font-medium">Founder & AI Strategist</h3>
-                  <p className="text-on-surface-variant text-lg leading-relaxed max-w-2xl">
-                    With a background in building complex automation pipelines, Tasmiya founded Vaslix to bridge the gap between high-level AI capabilities and real-world business operations. Her focus is on architecting systems that deliver measurable revenue impact rather than just technical novelty.
-                  </p>
-                  <p className="text-on-surface-variant text-lg leading-relaxed max-w-2xl">
-                    She leads the agency's strategy, ensuring every client receives a bespoke solution tailored to their specific industry bottlenecks.
-                  </p>
-                </div>
+      <section className="bg-paper py-24 lg:py-32">
+        <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 sm:px-8 lg:grid-cols-12">
+          <FadeIn className="lg:col-span-5">
+            <div className="lux-band relative grid aspect-[4/5] place-items-center overflow-hidden !rounded-[36px]">
+              <div aria-hidden="true" className="lux-grain opacity-40" />
+              <div className="relative text-center">
+                <LogoMark size={120} className="mx-auto drop-shadow-[0_30px_40px_rgba(0,0,0,0.35)]" />
+                <p className="mt-8 font-serif text-[34px] italic text-white">Tasmiya Siddiqui</p>
+                <p className="mt-1 text-[14px] font-medium uppercase tracking-[0.2em] text-white/75">Founder · Vaslix</p>
               </div>
-            </Reveal>
+            </div>
+          </FadeIn>
+          <div className="lg:col-span-7">
+            <SectionHead eyebrow="Leadership" lines={["Tasmiya Siddiqui", <span key="a" className="serif-accent">Founder & AI Strategist</span>]} />
+            <FadeIn delay={120}>
+              <p className="mt-6 text-[18px] leading-[1.7] text-ink-soft">
+                With a background in building complex automation pipelines, Tasmiya founded Vaslix to bridge the gap between
+                high-level AI capabilities and real-world business operations. Her focus is on architecting systems that deliver
+                measurable revenue impact rather than just technical novelty.
+              </p>
+              <p className="mt-5 text-[18px] leading-[1.7] text-ink-soft">
+                She leads the studio&apos;s strategy — from custom software and SaaS builds to AI agents — ensuring every client
+                receives a bespoke solution tailored to their industry&apos;s real bottlenecks.
+              </p>
+            </FadeIn>
           </div>
-        </section>
+        </div>
+      </section>
 
-      </main>
-      <Footer />
+      <CtaBand title={<>Let&apos;s build something <span className="font-serif font-normal italic">remarkable.</span></>} />
     </>
   );
 }

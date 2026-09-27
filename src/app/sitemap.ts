@@ -5,14 +5,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routes = [
     '',
-    '/ecosystem',
-    '/enterprise',
-    '/solutions',
-    '/contact',
+    '/ai-agents',
+    '/automation',
+    '/software',
+    '/work',
     '/about',
-    '/pricing',
-    '/case-studies',
-    '/resources'
+    '/insights',
+    '/contact'
   ]
 
   return routes.map((route) => ({

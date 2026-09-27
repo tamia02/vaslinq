@@ -60,6 +60,18 @@
   /* Typography */
   --font-body: "Inter", sans-serif;
   --font-display: "Inter", sans-serif;
+  --font-serif: var(--font-instrument), Georgia, serif;
+
+  /* Lux — light pearl + violet/indigo system (new homepage) */
+  --color-pearl: #f6f5fb;
+  --color-paper: #ffffff;
+  --color-ink: #110e24;
+  --color-ink-soft: #46425e;
+  --color-ink-mute: #66627f;
+  --color-line: #e6e3f0;
+  --color-violet: #5b3df5;
+  --color-violet-deep: #3a22c7;
+  --color-lilac: #ece8ff;
 }
 
 @property --border-angle {

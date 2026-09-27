@@ -15,17 +15,16 @@ const nextConfig: NextConfig = {
     ]
   },
   async redirects() {
+    // Old section names → new, clearer routes (keeps inbound links and SEO).
     return [
-      {
-        source: '/extended',
-        destination: '/enterprise',
-        permanent: true,
-      },
-      {
-        source: '/infrastructure',
-        destination: '/',
-        permanent: true,
-      },
+      { source: '/pricing', destination: '/contact', permanent: false },
+      { source: '/solutions', destination: '/ai-agents', permanent: true },
+      { source: '/ecosystem', destination: '/automation', permanent: true },
+      { source: '/enterprise', destination: '/software', permanent: true },
+      { source: '/case-studies', destination: '/work', permanent: true },
+      { source: '/resources', destination: '/insights', permanent: true },
+      { source: '/extended', destination: '/software', permanent: true },
+      { source: '/infrastructure', destination: '/', permanent: true },
     ];
   },
 };
