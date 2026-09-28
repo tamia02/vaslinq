@@ -8,6 +8,7 @@ import { WORDMARK_PATH, WORDMARK_VIEWBOX } from "./brandPaths";
 import Magnetic from "./motion/Magnetic";
 import { CALENDLY, EMAIL, WHATSAPP } from "./links";
 import { BUSINESS } from "@/lib/site";
+import { COUNTRIES } from "./countries";
 
 const COLUMNS = [
   {
@@ -150,7 +151,21 @@ export default function LuxFooter() {
           <p className="mt-5 max-w-xs leading-relaxed text-ink-mute">
             AI agency for custom software and AI automation — built in India, shipped worldwide.
           </p>
-          <address className="mt-6 space-y-1 text-[14px] not-italic leading-relaxed text-ink-soft">
+          <ul className="mt-6 flex items-center gap-2" aria-label="Countries we serve">
+            {COUNTRIES.map((c) => (
+              <li key={c.code}>
+                <img
+                  src={`/flags/${c.code}.svg`}
+                  alt={c.name}
+                  title={c.name}
+                  width={28}
+                  height={21}
+                  className="h-[21px] w-7 rounded-[4px] object-cover shadow-[0_0_0_1px_rgba(17,14,36,0.08)] transition-transform hover:-translate-y-0.5"
+                />
+              </li>
+            ))}
+          </ul>
+          <address className="mt-5 space-y-1 text-[14px] not-italic leading-relaxed text-ink-soft">
             <a href={`tel:${BUSINESS.phone.replace(/-/g, "")}`} className="flex items-center gap-2 hover:text-violet">
               <span className="material-symbols-outlined text-[18px] text-violet" aria-hidden="true">call</span>
               {BUSINESS.phoneDisplay}

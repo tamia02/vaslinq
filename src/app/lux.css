@@ -389,3 +389,6 @@ html[data-intro="seen"] .vx-preloader { display: none; }
   background: rgba(255, 255, 255, 0.93);
   box-shadow: 0 8px 24px -16px rgba(58, 34, 199, 0.3), 0 0 0 1px rgba(17, 14, 36, 0.05);
 }
+
+/* Mixed-script text: Inter for Latin, Noto for Devanagari / Arabic glyphs */
+.font-intl { font-family: var(--font-inter), var(--font-deva), var(--font-arab), system-ui, sans-serif; }

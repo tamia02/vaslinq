@@ -3,7 +3,7 @@
 import { useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-const LANGS = ["English", "हिन्दी", "العربية", "Regional"];
+const LANGS = ["English", "हिन्दी", "العربية", "Bahasa Melayu"];
 const HEIGHTS = [18, 34, 52, 28, 64, 40, 22, 58, 36, 70, 30, 48, 24, 60, 38, 20, 44, 66, 32, 50, 26, 56, 36, 18];
 
 // Live-call card: animated waveform, ticking timer and rotating language chip.
@@ -61,7 +61,7 @@ export default function VoiceDemo() {
 
       <div className="relative mt-8 flex items-center justify-between border-t border-line pt-6">
         <span className="text-[13px] text-ink-mute">Speaking</span>
-        <span key={lang} className="rounded-full bg-lilac px-3 py-1 text-[13px] font-semibold text-violet">{LANGS[lang]}</span>
+        <span key={lang} className="font-intl rounded-full bg-lilac px-3 py-1 text-[13px] font-semibold text-violet">{LANGS[lang]}</span>
       </div>
     </div>
   );

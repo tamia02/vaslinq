@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Inter, Instrument_Serif, Noto_Sans_Arabic, Noto_Sans_Devanagari } from "next/font/google";
 import "./globals.css";
 import "./lux.css";
 import LuxNav from "@/components/lux/LuxNav";
@@ -15,6 +15,10 @@ const inter = Inter({
   variable: "--font-inter",
   display: "swap",
 });
+
+// Local-language greetings (Hindi, Arabic) — loaded lazily, used via .font-intl
+const deva = Noto_Sans_Devanagari({ subsets: ["devanagari"], weight: ["600", "700"], variable: "--font-deva", display: "swap", preload: false });
+const arab = Noto_Sans_Arabic({ subsets: ["arabic"], weight: ["600", "700"], variable: "--font-arab", display: "swap", preload: false });
 
 const instrument = Instrument_Serif({
   subsets: ["latin"],
@@ -53,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-IN" suppressHydrationWarning className={`${inter.variable} ${instrument.variable} h-full antialiased`}>
+    <html lang="en-IN" suppressHydrationWarning className={`${inter.variable} ${instrument.variable} ${deva.variable} ${arab.variable} h-full antialiased`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: introScript }} />
         <noscript>

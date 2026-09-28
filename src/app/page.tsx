@@ -8,6 +8,8 @@ import RevealLines from "@/components/lux/motion/RevealLines";
 import Magnetic from "@/components/lux/motion/Magnetic";
 import WorkShowcase from "@/components/lux/sections/WorkShowcase";
 import Showreel from "@/components/lux/sections/Showreel";
+import GlobalHello from "@/components/lux/sections/GlobalHello";
+import Worldwide from "@/components/lux/sections/Worldwide";
 import ClientStories from "@/components/lux/sections/ClientStories";
 import SectionHead from "@/components/lux/sections/SectionHead";
 import CtaBand from "@/components/lux/sections/CtaBand";
@@ -135,11 +137,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl items-center gap-6 px-6 sm:px-8 lg:min-h-[calc(100svh-7rem)] lg:grid-cols-12">
           <div className="lg:col-span-6">
             <FadeIn hero>
-              <Link href="/work" className="lux-pill lux-glass">
-                <span className="lux-pill-dot">New</span>
-                See the products we&apos;ve shipped
-                <span className="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
-              </Link>
+              <GlobalHello />
             </FadeIn>
             <RevealLines
               hero
@@ -290,6 +288,8 @@ export default function Home() {
           ))}
         </ul>
       </section>
+
+      <Worldwide />
 
       <KineticBand words={["Design", "Build", "Automate", "Scale"]} />
 
