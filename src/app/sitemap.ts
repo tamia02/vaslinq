@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://vaslix.com'
+  const baseUrl = 'https://www.vaslix.com'
 
   const routes = [
     '',
@@ -11,13 +11,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/work',
     '/about',
     '/insights',
-    '/contact'
+    '/contact',
+    '/ai-agency-uttar-pradesh',
+    '/vaslix-ai'
   ]
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
-    priority: route === '' ? 1 : 0.8,
+    priority: route === '' ? 1 : route === '/ai-agency-uttar-pradesh' ? 0.9 : 0.8,
   }))
 }

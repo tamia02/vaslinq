@@ -7,10 +7,10 @@ import TiltCard from "@/components/fx/TiltCard";
 import { LogoMark } from "@/components/lux/Logo";
 
 export const metadata: Metadata = {
-  title: "About Vaslix | Custom Software & AI Automation Studio",
+  title: "About — AI & Software Studio in Lucknow, Uttar Pradesh",
   description:
-    "Vaslix is a custom software and AI automation studio founded by Tasmiya Siddiqui, building intelligent business infrastructure for startups, luxury brands and B2B companies.",
-  alternates: { canonical: "https://vaslix.com/about" },
+    "Vaslix is a Lucknow-based AI agency and software studio founded by Tasmiya Siddiqui, building AI and automation for businesses across Uttar Pradesh and India.",
+  alternates: { canonical: "https://www.vaslix.com/about" },
 };
 
 const VALUES = [

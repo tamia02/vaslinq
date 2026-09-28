@@ -13,10 +13,10 @@ import PillMarquee from "@/components/lux/sections/PillMarquee";
 import { MockShot } from "@/components/lux/demos/Mocks";
 
 export const metadata: Metadata = {
-  title: "Custom Software, SaaS Platforms & 3D Websites | Vaslix",
+  title: "Custom Software, SaaS Platforms & 3D Websites",
   description:
     "Custom web applications, SaaS platforms, premium e-commerce, interactive 3D websites, CRM systems and AI-driven Meta Ads for startups and brands.",
-  alternates: { canonical: "https://vaslix.com/software" },
+  alternates: { canonical: "https://www.vaslix.com/software" },
 };
 
 const BUILDS = [
@@ -122,7 +122,7 @@ export default function SoftwarePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    provider: { "@type": "Organization", name: "Vaslix", url: "https://vaslix.com" },
+    provider: { "@type": "Organization", name: "Vaslix", url: "https://www.vaslix.com" },
     name: "Custom Software, SaaS Platforms & 3D Websites",
     description: "Custom web applications, SaaS platforms, interactive 3D websites, CRM systems and AI-driven Meta Ads.",
   };

@@ -11,10 +11,10 @@ import { MockBooking, MockChat, MockDashboard } from "@/components/lux/demos/Moc
 import { CALENDLY } from "@/components/lux/links";
 
 export const metadata: Metadata = {
-  title: "AI Chat & Voice Agents for Business | Vaslix",
+  title: "AI Chat & Voice Agents for Business",
   description:
     "Human-like AI voice agents, WhatsApp chatbots and website assistants that answer customers, qualify leads and book appointments 24/7 in Hindi, English, Arabic and more.",
-  alternates: { canonical: "https://vaslix.com/ai-agents" },
+  alternates: { canonical: "https://www.vaslix.com/ai-agents" },
 };
 
 const WA_FEATURES = ["LLM trained on your business", "CRM syncing", "Voice note support", "Multi-language"];
@@ -109,7 +109,7 @@ export default function AiAgentsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    provider: { "@type": "Organization", name: "Vaslix", url: "https://vaslix.com" },
+    provider: { "@type": "Organization", name: "Vaslix", url: "https://www.vaslix.com" },
     name: "AI Chatbots & Voice Agents",
     description:
       "Smart WhatsApp chatbots and human-like AI voice agents for inbound/outbound calls, CRM syncing and multi-language support.",

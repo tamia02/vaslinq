@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://vaslix.com/sitemap.xml',
+    sitemap: 'https://www.vaslix.com/sitemap.xml',
   }
 }

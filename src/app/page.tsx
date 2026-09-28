@@ -12,16 +12,16 @@ import ClientStories from "@/components/lux/sections/ClientStories";
 import SectionHead from "@/components/lux/sections/SectionHead";
 import CtaBand from "@/components/lux/sections/CtaBand";
 import ContactLinks from "@/components/lux/sections/ContactLinks";
-import { CALENDLY, EMAIL } from "@/components/lux/links";
+import { CALENDLY } from "@/components/lux/links";
 import { FEATURED } from "@/components/lux/work";
 import StepTabs, { type Step } from "@/components/lux/sections/StepTabs";
 import { MockCode, MockDashboard, MockShot } from "@/components/lux/demos/Mocks";
 
 export const metadata: Metadata = {
-  title: "Vaslix | Custom Software & AI Automation Studio",
+  title: { absolute: "AI Agency in Lucknow, Uttar Pradesh | Vaslix" },
   description:
-    "Vaslix builds custom software, SaaS platforms, AI chat & voice agents and business automation for ambitious brands in India and worldwide.",
-  alternates: { canonical: "https://vaslix.com" },
+    "Vaslix is an AI agency in Lucknow, Uttar Pradesh building AI WhatsApp & voice agents, business automation and custom software for companies across UP and India.",
+  alternates: { canonical: "https://www.vaslix.com" },
 };
 
 const CAPABILITIES = [
@@ -112,31 +112,12 @@ const PROMISES = [
 export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        name: "Vaslix",
-        url: "https://vaslix.com",
-        logo: "https://vaslix.com/logo.png",
-        sameAs: [
-          "https://www.linkedin.com/company/vaslix",
-          "https://clutch.co/profile/vaslix",
-          "https://www.goodfirms.co/company/vaslix",
-        ],
-        contactPoint: {
-          "@type": "ContactPoint",
-          email: EMAIL,
-          telephone: "+91-9453283929",
-          contactType: "customer service",
-        },
-      },
-      {
-        "@type": "Service",
-        provider: { "@type": "Organization", name: "Vaslix" },
-        name: "Custom Software & AI Automation",
-        description: "Custom software, SaaS platforms, AI chat/voice agents and business automation for brands worldwide.",
-      },
-    ],
+    "@type": "Service",
+    provider: { "@id": "https://www.vaslix.com/#localbusiness" },
+    name: "Custom Software & AI Automation",
+    serviceType: "AI agency",
+    areaServed: ["Lucknow", "Uttar Pradesh", "India"],
+    description: "Custom software, SaaS platforms, AI WhatsApp/voice agents and business automation from a Lucknow-based AI agency.",
   };
 
   return (
@@ -163,6 +144,9 @@ export default function Home() {
               className="display mt-7 text-[clamp(44px,6.2vw,84px)] font-bold"
               delay={0.1}
               lines={[
+                <span key="loc" className="mb-4 block text-[15px] font-semibold tracking-[0.02em] text-violet sm:text-[16px]">
+                  AI agency in Lucknow, Uttar Pradesh
+                </span>,
                 "Custom software",
                 "& AI that runs",
                 <span key="a" className="serif-accent text-[1.08em]">while you sleep.</span>,
@@ -170,8 +154,9 @@ export default function Home() {
             />
             <FadeIn hero delay={450}>
               <p className="mt-6 max-w-lg text-[18px] leading-[1.65] text-ink-soft">
-                Vaslix designs and builds SaaS platforms, premium websites, AI chat &amp; voice agents and
-                automation for ambitious brands — so your team focuses on growth, not busywork.
+                Vaslix is a Lucknow-based AI agency. We design and build SaaS platforms, premium websites,
+                AI chat &amp; voice agents and automation for ambitious brands across Uttar Pradesh, India
+                and worldwide — so your team focuses on growth, not busywork.
               </p>
             </FadeIn>
             <FadeIn hero delay={550} className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -311,6 +296,42 @@ export default function Home() {
         <SectionHead eyebrow="How we work" lines={["From first call", <>to <span key="a" className="serif-accent">live product.</span></>]} />
         <FadeIn className="mt-14">
           <StepTabs steps={PROCESS} />
+        </FadeIn>
+      </section>
+
+      {/* ─────────── Local + product band ─────────── */}
+      <section className="mx-auto grid max-w-6xl gap-6 px-6 pt-28 sm:px-8 md:grid-cols-2 lg:pt-36">
+        <FadeIn>
+          <Link href="/ai-agency-uttar-pradesh" className="lux-card group flex h-full flex-col p-8 sm:p-10">
+            <span className="lux-icon">
+              <span className="material-symbols-outlined text-[28px]" aria-hidden="true">location_on</span>
+            </span>
+            <p className="lux-eyebrow mt-8">Made in Lucknow</p>
+            <h2 className="mt-3 text-[26px] font-bold tracking-[-0.02em]">The AI agency for Uttar Pradesh businesses</h2>
+            <p className="mt-3 flex-1 leading-[1.65] text-ink-mute">
+              From Lucknow to Kanpur, Noida and Varanasi — AI agents that speak Hindi and Hinglish, and software built for how UP businesses really work.
+            </p>
+            <span className="mt-6 inline-flex items-center gap-2 font-semibold text-violet">
+              AI agency in Uttar Pradesh
+              <span className="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
+            </span>
+          </Link>
+        </FadeIn>
+        <FadeIn delay={90}>
+          <Link href="/vaslix-ai" className="lux-band group flex h-full flex-col !rounded-[28px] p-8 sm:p-10">
+            <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-white/15">
+              <span className="material-symbols-outlined text-[28px]" aria-hidden="true">rocket_launch</span>
+            </span>
+            <p className="relative mt-8 text-[12px] font-bold uppercase tracking-[0.18em] text-white/75">Coming soon · ai.vaslix.com</p>
+            <h2 className="relative mt-3 text-[26px] font-bold tracking-[-0.02em]">Vaslix AI — our platform, self-serve</h2>
+            <p className="relative mt-3 flex-1 leading-[1.65] text-white/85">
+              We&apos;re turning the systems we build for clients into a SaaS you can launch yourself. Join the waitlist for early access.
+            </p>
+            <span className="relative mt-6 inline-flex items-center gap-2 font-semibold">
+              Join the waitlist
+              <span className="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
+            </span>
+          </Link>
         </FadeIn>
       </section>
 

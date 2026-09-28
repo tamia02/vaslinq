@@ -5,9 +5,9 @@ import FadeIn from "@/components/lux/FadeIn";
 import TiltCard from "@/components/fx/TiltCard";
 
 export const metadata: Metadata = {
-  title: "Insights — AI, Automation & Software | Vaslix",
+  title: "Insights — AI, Automation & Software",
   description: "Guides on AI chatbots, voice agents, automation and custom software — costs, comparisons and implementation timelines.",
-  alternates: { canonical: "https://vaslix.com/insights" },
+  alternates: { canonical: "https://www.vaslix.com/insights" },
 };
 
 const ARTICLES = [

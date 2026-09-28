@@ -8,6 +8,7 @@ import Preloader from "@/components/lux/motion/Preloader";
 import SmoothScroll from "@/components/lux/motion/SmoothScroll";
 import ScrollBar from "@/components/lux/motion/ScrollBar";
 import { WHATSAPP } from "@/components/lux/links";
+import { SITE_URL, siteJsonLd } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,13 +25,27 @@ const instrument = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vaslix.com"),
-  title: "Vaslix | Custom Software & AI Automation Studio",
-  description: "Vaslix builds custom software, AI chat & voice agents and business automation for ambitious brands worldwide.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "AI Agency in Lucknow, Uttar Pradesh | Vaslix — Custom Software & AI Automation",
+    template: "%s | Vaslix",
+  },
+  description:
+    "Vaslix is an AI agency in Lucknow, Uttar Pradesh building AI WhatsApp & voice agents, business automation and custom software for companies across UP and India.",
+  applicationName: "Vaslix",
+  authors: [{ name: "Tasmiya Siddiqui" }],
   openGraph: {
     siteName: "Vaslix",
     type: "website",
+    locale: "en_IN",
     images: ["/og.png"],
+  },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
+  other: {
+    "geo.region": "IN-UP",
+    "geo.placename": "Lucknow",
+    "geo.position": "26.8467;80.9462",
+    ICBM: "26.8467, 80.9462",
   },
 };
 
@@ -44,9 +59,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${instrument.variable} h-full antialiased`}>
+    <html lang="en-IN" suppressHydrationWarning className={`${inter.variable} ${instrument.variable} h-full antialiased`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: introScript }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd()) }} />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"

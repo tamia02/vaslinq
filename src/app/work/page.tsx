@@ -8,10 +8,10 @@ import { FEATURED, MORE_WORK } from "@/components/lux/work";
 import PillTabs, { type TabItem } from "@/components/lux/sections/PillTabs";
 
 export const metadata: Metadata = {
-  title: "Work & Case Studies | Vaslix",
+  title: "Work & Case Studies",
   description:
     "Custom software, SaaS platforms, e-commerce stores and AI automation systems Vaslix has designed and shipped for founders and brands.",
-  alternates: { canonical: "https://vaslix.com/work" },
+  alternates: { canonical: "https://www.vaslix.com/work" },
 };
 
 const CASES = [

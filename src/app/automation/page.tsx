@@ -13,10 +13,10 @@ import PillMarquee from "@/components/lux/sections/PillMarquee";
 import { MockBooking, MockChat, MockCode, MockDashboard, MockPipeline } from "@/components/lux/demos/Mocks";
 
 export const metadata: Metadata = {
-  title: "Business Automation, CRM & Lead Generation | Vaslix",
+  title: "Business Automation, CRM & Lead Generation",
   description:
     "Custom AI automation workflows, CRM automation, lead generation pipelines and AI content systems that save time and scale revenue.",
-  alternates: { canonical: "https://vaslix.com/automation" },
+  alternates: { canonical: "https://www.vaslix.com/automation" },
 };
 
 const TRACKS = [
@@ -135,7 +135,7 @@ export default function AutomationPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    provider: { "@type": "Organization", name: "Vaslix", url: "https://vaslix.com" },
+    provider: { "@type": "Organization", name: "Vaslix", url: "https://www.vaslix.com" },
     name: "Custom AI Automation Systems",
     description:
       "Fully customised automation systems for business workflows, including sales pipelines, CRM automation and AI content generation.",
