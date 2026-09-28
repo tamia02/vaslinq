@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import type { Shape } from "./HeroScene";
 
 const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
@@ -33,6 +33,10 @@ export default function Stage3D({ scene, className = "", label, shape = "knot" }
   const [active, setActive] = useState(false);
   const [ready, setReady] = useState(false);
   const src = scene === "orbs" ? "/3d/orbs.webp" : `/3d/${shape}.webp`;
+  // Snapshot mode still feels alive: it turns and breathes with scroll.
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const rotate = useTransform(scrollYProgress, [0, 1], [-10, 14]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.94, 1.03, 0.96]);
 
   useEffect(() => {
     if (scene !== "hero" || !canRunLive()) return;
@@ -51,15 +55,17 @@ export default function Stage3D({ scene, className = "", label, shape = "knot" }
 
   return (
     <div ref={ref} className={className} role="img" aria-label={label}>
-      <img
-        src={src}
-        alt=""
-        decoding="async"
-        fetchPriority={scene === "hero" ? "high" : "auto"}
-        className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-700 ${reduced ? "" : "lux-float"} ${
-          ready ? "opacity-0" : "opacity-100"
-        }`}
-      />
+      <motion.div className="absolute inset-0" style={reduced ? undefined : { rotate, scale }}>
+        <img
+          src={src}
+          alt=""
+          decoding="async"
+          fetchPriority={scene === "hero" ? "high" : "auto"}
+          className={`h-full w-full object-contain transition-opacity duration-700 ${reduced ? "" : "lux-float"} ${
+            ready ? "opacity-0" : "opacity-100"
+          }`}
+        />
+      </motion.div>
       {live && (
         <div className={`absolute inset-0 transition-opacity duration-700 ${ready ? "opacity-100" : "opacity-0"}`}>
           <HeroScene active={active} reduced={reduced} shape={shape} onReady={() => setTimeout(() => setReady(true), 250)} />

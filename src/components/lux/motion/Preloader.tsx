@@ -1,11 +1,10 @@
 "use client";
 
-import { AnimatePresence, LayoutGroup, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, LayoutGroup, animate, motion, useMotionTemplate, useMotionValue, useReducedMotion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 
 const EXPO = [0.16, 1, 0.3, 1] as const;
-const WIPE = [0.76, 0, 0.24, 1] as const;
-const COLUMNS = 6;
+const PORTAL = [0.7, 0, 0.2, 1] as const;
 
 // Syntax-tokenised "build script" the intro types out. [text, className]
 const CODE: [string, string][][] = [
@@ -23,18 +22,33 @@ const TOTAL_CHARS = CODE.reduce((n, line) => n + line.reduce((m, [t]) => m + t.l
 
 const LOG = ["design system", "ai agents online", "automations wired", "deployed"];
 
-type Phase = "code" | "brand" | "done";
+// Spark burst from the logo node: deterministic angles/distances.
+const SPARKS = Array.from({ length: 16 }, (_, i) => {
+  const a = (i / 16) * Math.PI * 2 + (i % 2 ? 0.2 : 0);
+  const d = 90 + (i % 4) * 34;
+  return { x: Math.cos(a) * d, y: Math.sin(a) * d, s: 3 + (i % 3) * 2, delay: (i % 5) * 0.02 };
+});
+
+type Phase = "code" | "brand" | "zoom";
+
 
 // First-visit intro. Pearl stage → glass editor types a build script while a
-// build log ticks to 100% → the editor collapses into the Vaslix tile, the V
-// draws itself → the stage splits into columns that lift away. Once per
+// build log ticks to 100% → the editor collapses into the Vaslix tile, light
+// rays spin up, sparks burst, the wordmark shimmers → the tile surges and the
+// screen opens like a portal from its centre (violet rim trailing). Once per
 // session (see the inline <head> script in layout.tsx); click to skip.
 export default function Preloader() {
   const reduced = useReducedMotion();
   const [show, setShow] = useState(true);
   const [phase, setPhase] = useState<Phase>("code");
   const [chars, setChars] = useState(0);
+  const [opening, setOpening] = useState(false);
   const [pct, setPct] = useState(0);
+  // Portal: a growing hole centred on the logo, driven by motion values.
+  const rPearl = useMotionValue(0);
+  const rViolet = useMotionValue(0);
+  const maskPearl = useMotionTemplate`radial-gradient(circle at 50% 44%, transparent ${rPearl}px, #000 calc(${rPearl}px + 1px))`;
+  const maskViolet = useMotionTemplate`radial-gradient(circle at 50% 44%, transparent ${rViolet}px, #000 calc(${rViolet}px + 1px))`;
 
   const finish = useCallback(() => {
     try { sessionStorage.setItem("vx-intro", "1"); } catch {}
@@ -48,6 +62,7 @@ export default function Preloader() {
       setShow(false);
       return;
     }
+    const maxR = Math.ceil(Math.hypot(window.innerWidth, window.innerHeight)) + 40;
     document.documentElement.style.overflow = "hidden";
     if (reduced) {
       const t = setTimeout(finish, 500);
@@ -68,14 +83,23 @@ export default function Preloader() {
     };
     raf = requestAnimationFrame(tick);
     const toBrand = setTimeout(() => setPhase("brand"), 1550);
-    const done = setTimeout(finish, 2650);
+    const toZoom = setTimeout(() => setPhase("zoom"), 2600);
+    const open = setTimeout(() => {
+      setOpening(true);
+      document.documentElement.style.overflow = "";
+      animate(rPearl, maxR, { duration: 0.9, ease: PORTAL });
+      animate(rViolet, maxR, { duration: 0.95, ease: PORTAL, delay: 0.1 });
+    }, 2850);
+    const done = setTimeout(finish, 3950);
     return () => {
       cancelAnimationFrame(raf);
       clearTimeout(toBrand);
+      clearTimeout(toZoom);
+      clearTimeout(open);
       clearTimeout(done);
       document.documentElement.style.overflow = "";
     };
-  }, [reduced, finish]);
+  }, [reduced, finish, rPearl, rViolet]);
 
   // Render typed code up to `chars`.
   let budget = chars;
@@ -89,43 +113,23 @@ export default function Preloader() {
     return { key: li, parts, active: budget < 0 && budget >= -1 - line.reduce((m, [t]) => m + t.length, 0) };
   });
   const caretLine = Math.max(0, lines.findIndex((l) => l.active));
+  const zoom = phase === "zoom";
 
   return (
     <AnimatePresence>
       {show && (
         <motion.div
           key="vx-preloader"
-          className="vx-preloader fixed inset-0 z-[200] cursor-pointer"
+          className={`vx-preloader fixed inset-0 z-[200] ${opening ? "pointer-events-none" : "cursor-pointer"}`}
           aria-hidden="true"
           onClick={finish}
           exit={{ pointerEvents: "none" }}
         >
-          {/* Split curtain: violet columns trail the pearl columns */}
-          <div className="absolute inset-0 flex">
-            {Array.from({ length: COLUMNS }).map((_, i) => (
-              <motion.div
-                key={`v${i}`}
-                className="h-full flex-1 bg-violet"
-                exit={{ y: "-100%" }}
-                transition={{ duration: 0.85, ease: WIPE, delay: 0.12 + i * 0.05 }}
-              />
-            ))}
-          </div>
-          <div className="absolute inset-0 flex">
-            {Array.from({ length: COLUMNS }).map((_, i) => (
-              <motion.div
-                key={`p${i}`}
-                className="h-full flex-1 bg-pearl"
-                exit={{ y: "-100%" }}
-                transition={{ duration: 0.8, ease: WIPE, delay: i * 0.05 }}
-              />
-            ))}
-          </div>
-
+          {/* Violet rim: opens a beat after the pearl stage */}
+          <motion.div className="absolute inset-0 bg-violet" style={{ WebkitMaskImage: maskViolet, maskImage: maskViolet }} />
           <motion.div
-            className="absolute inset-0 grid place-items-center overflow-hidden"
-            exit={{ opacity: 0, y: -60, filter: "blur(10px)" }}
-            transition={{ duration: 0.5, ease: EXPO }}
+            className="absolute inset-0 grid place-items-center overflow-hidden bg-pearl"
+            style={{ WebkitMaskImage: maskPearl, maskImage: maskPearl }}
           >
             <div className="lux-halo" />
             <div className="lux-grid" />
@@ -136,10 +140,10 @@ export default function Preloader() {
                   <motion.div
                     key="editor"
                     layoutId="vx-shell"
-                    className="relative w-[min(92vw,700px)] overflow-hidden border border-white bg-white/75 shadow-[0_40px_100px_-40px_rgba(58,34,199,0.45),0_0_0_1px_rgba(17,14,36,0.06)] backdrop-blur-xl"
+                    className="relative w-[min(92vw,700px)] overflow-hidden border border-white bg-white/85 shadow-[0_40px_100px_-40px_rgba(58,34,199,0.45),0_0_0_1px_rgba(17,14,36,0.06)]"
                     style={{ borderRadius: 24 }}
-                    initial={{ opacity: 0, scale: 0.92, y: 24, filter: "blur(12px)" }}
-                    animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
+                    initial={{ opacity: 0, scale: 0.92, y: 24 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.8, ease: EXPO }}
                   >
@@ -181,11 +185,33 @@ export default function Preloader() {
                   </motion.div>
                 ) : (
                   <motion.div key="brand" className="relative flex flex-col items-center">
+                    {/* Spinning light rays + bloom behind the tile */}
+                    <motion.div
+                      className="pointer-events-none absolute left-1/2 top-[56px] h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2"
+                      initial={{ opacity: 0, scale: 0.4 }}
+                      animate={{ opacity: zoom ? 0 : 1, scale: zoom ? 1.6 : 1 }}
+                      transition={{ duration: zoom ? 0.35 : 0.9, ease: EXPO }}
+                    >
+                      <motion.div
+                        className="h-full w-full rounded-full"
+                        style={{
+                          background:
+                            "repeating-conic-gradient(from 0deg, rgba(124,92,255,0.28) 0deg 5deg, transparent 5deg 22deg)",
+                          WebkitMaskImage: "radial-gradient(circle, #000 12%, transparent 68%)",
+                          maskImage: "radial-gradient(circle, #000 12%, transparent 68%)",
+                        }}
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
+                      />
+                      <div className="absolute inset-[30%] rounded-full bg-[radial-gradient(circle,rgba(124,92,255,0.45),transparent_70%)]" />
+                    </motion.div>
+
                     <motion.div
                       layoutId="vx-shell"
-                      className="grid h-[112px] w-[112px] place-items-center bg-gradient-to-br from-[#1d1640] to-[#0c0a1c] shadow-[0_30px_60px_-20px_rgba(58,34,199,0.6)]"
+                      className="relative z-10 grid h-[112px] w-[112px] place-items-center bg-gradient-to-br from-[#1d1640] to-[#0c0a1c] shadow-[0_30px_60px_-20px_rgba(58,34,199,0.6)]"
                       style={{ borderRadius: 32 }}
-                      transition={{ duration: 0.7, ease: EXPO }}
+                      animate={zoom ? { scale: 1.35, boxShadow: "0 0 90px 20px rgba(124,92,255,0.55)" } : { scale: 1 }}
+                      transition={{ duration: zoom ? 0.35 : 0.7, ease: EXPO }}
                     >
                       <svg width="112" height="112" viewBox="0 0 48 48" fill="none">
                         <defs>
@@ -202,48 +228,72 @@ export default function Preloader() {
                           strokeLinejoin="round"
                           initial={{ pathLength: 0 }}
                           animate={{ pathLength: 1 }}
-                          transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1], delay: 0.35 }}
+                          transition={{ duration: 0.55, ease: [0.65, 0, 0.35, 1], delay: 0.3 }}
                         />
                         <motion.circle
                           cx="35" cy="14.5" r="4.2" fill="#7c5cff"
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
-                          transition={{ type: "spring", stiffness: 420, damping: 12, delay: 0.85 }}
+                          transition={{ type: "spring", stiffness: 420, damping: 12, delay: 0.78 }}
                           style={{ transformOrigin: "35px 14.5px" }}
                         />
                         <motion.circle
                           cx="35" cy="14.5" r="1.6" fill="#fff"
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
-                          transition={{ delay: 0.95, duration: 0.2 }}
+                          transition={{ delay: 0.88, duration: 0.2 }}
                           style={{ transformOrigin: "35px 14.5px" }}
                         />
                       </svg>
                     </motion.div>
-                    {/* soft pulse ring as the node lands */}
-                    <motion.span
-                      className="absolute top-0 h-[112px] w-[112px] rounded-[32px] border-2 border-violet"
-                      initial={{ opacity: 0.6, scale: 1 }}
-                      animate={{ opacity: 0, scale: 1.7 }}
-                      transition={{ duration: 0.9, ease: EXPO, delay: 0.9 }}
-                    />
-                    <div className="mt-8 flex overflow-hidden text-[46px] font-extrabold tracking-[-0.045em] text-ink">
+
+                    {/* Spark burst from the node */}
+                    <div className="pointer-events-none absolute left-1/2 top-[56px] z-20" style={{ marginLeft: 26, marginTop: -22 }}>
+                      {SPARKS.map((sp, i) => (
+                        <motion.span
+                          key={i}
+                          className="absolute rounded-full bg-violet shadow-[0_0_12px_2px_rgba(124,92,255,0.7)]"
+                          style={{ width: sp.s, height: sp.s, marginLeft: -sp.s / 2, marginTop: -sp.s / 2 }}
+                          initial={{ x: 0, y: 0, opacity: 0, scale: 0.4 }}
+                          animate={{ x: sp.x, y: sp.y, opacity: [0, 1, 0], scale: [0.4, 1.2, 0.2] }}
+                          transition={{ duration: 0.85, ease: "easeOut", delay: 0.8 + sp.delay }}
+                        />
+                      ))}
+                    </div>
+
+                    {/* ripple rings as the node lands */}
+                    {[0, 1].map((k) => (
+                      <motion.span
+                        key={k}
+                        className="absolute top-0 z-0 h-[112px] w-[112px] rounded-[32px] border-2 border-violet"
+                        initial={{ opacity: 0.6, scale: 1 }}
+                        animate={{ opacity: 0, scale: 2.1 + k * 0.5 }}
+                        transition={{ duration: 1.1, ease: EXPO, delay: 0.82 + k * 0.14 }}
+                      />
+                    ))}
+
+                    <motion.div
+                      className="relative z-10 mt-8 flex overflow-hidden bg-[linear-gradient(110deg,#110e24_42%,#8b6dff_50%,#110e24_58%)] bg-[length:260%_100%] bg-clip-text pb-1 text-[52px] font-extrabold tracking-[-0.045em] text-transparent sm:text-[60px]"
+                      initial={{ backgroundPosition: "100% 0" }}
+                      animate={{ backgroundPosition: "-60% 0", opacity: zoom ? 0 : 1, y: zoom ? 12 : 0 }}
+                      transition={{ backgroundPosition: { duration: 1.1, ease: "easeInOut", delay: 0.75 }, opacity: { duration: 0.25 }, y: { duration: 0.3 } }}
+                    >
                       {"Vaslix".split("").map((l, i) => (
                         <motion.span
                           key={i}
-                          initial={{ y: "110%", filter: "blur(6px)" }}
-                          animate={{ y: "0%", filter: "blur(0px)" }}
-                          transition={{ duration: 0.7, ease: EXPO, delay: 0.4 + i * 0.045 }}
+                          initial={{ y: "110%" }}
+                          animate={{ y: "0%" }}
+                          transition={{ duration: 0.7, ease: EXPO, delay: 0.35 + i * 0.045 }}
                         >
                           {l}
                         </motion.span>
                       ))}
-                    </div>
+                    </motion.div>
                     <motion.p
-                      className="mt-1 font-serif text-[20px] italic text-violet"
+                      className="relative z-10 mt-1 font-serif text-[21px] italic text-violet"
                       initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.75, duration: 0.6, ease: EXPO }}
+                      animate={{ opacity: zoom ? 0 : 1, y: 0 }}
+                      transition={{ delay: zoom ? 0 : 0.7, duration: zoom ? 0.2 : 0.6, ease: EXPO }}
                     >
                       Software &amp; AI that runs while you sleep.
                     </motion.p>
@@ -253,7 +303,7 @@ export default function Preloader() {
             </LayoutGroup>
 
             <div className="absolute inset-x-6 bottom-7 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.2em] text-ink-mute sm:inset-x-10">
-              <span>Vaslix · Build {new Date().getFullYear()}</span>
+              <span>Vaslix · Lucknow</span>
               <span>Click to skip</span>
             </div>
           </motion.div>
@@ -263,8 +313,8 @@ export default function Preloader() {
   );
 }
 
-// Seconds the hero should wait so its entrance plays as the curtain lifts.
+// Seconds the hero should wait so its entrance plays as the portal opens.
 export function introDelay(): number {
   if (typeof document === "undefined") return 0;
-  return document.documentElement.dataset.intro === "seen" ? 0 : 2.6;
+  return document.documentElement.dataset.intro === "seen" ? 0 : 2.95;
 }

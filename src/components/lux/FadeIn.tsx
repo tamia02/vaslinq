@@ -31,9 +31,9 @@ export default function FadeIn({ children, className = "", delay = 0, as = "div"
   return (
     <Tag
       className={className}
-      initial={{ opacity: 0, y: 56 }}
-      {...(hero ? { animate: target } : { whileInView: target, viewport: { once: true, amount: 0.1 } })}
-      transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: wait + delay / 1000 }}
+      initial={{ opacity: 0, y: 36 }}
+      {...(hero ? { animate: target } : { whileInView: target, viewport: { once: true, margin: "0px 0px 20% 0px" } })}
+      transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1], delay: wait + delay / 1000 }}
     >
       {children}
     </Tag>

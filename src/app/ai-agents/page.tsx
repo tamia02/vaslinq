@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import KineticBand from "@/components/lux/motion/KineticBand";
 import PageHero from "@/components/lux/sections/PageHero";
 import SectionHead from "@/components/lux/sections/SectionHead";
 import CtaBand from "@/components/lux/sections/CtaBand";
@@ -239,6 +240,8 @@ export default function AiAgentsPage() {
           </div>
         </FadeIn>
       </section>
+
+      <KineticBand words={["Answer", "Qualify", "Book", "24/7"]} />
 
       <CtaBand title={<>Ready to hire your first <span className="font-serif font-normal italic">AI employee?</span></>} />
     </>

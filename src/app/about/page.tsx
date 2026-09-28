@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import KineticBand from "@/components/lux/motion/KineticBand";
 import PageHero from "@/components/lux/sections/PageHero";
 import SectionHead from "@/components/lux/sections/SectionHead";
 import CtaBand from "@/components/lux/sections/CtaBand";
@@ -100,6 +101,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <KineticBand words={["Lucknow", "Uttar Pradesh", "India", "Worldwide"]} />
 
       <CtaBand title={<>Let&apos;s build something <span className="font-serif font-normal italic">remarkable.</span></>} />
     </>

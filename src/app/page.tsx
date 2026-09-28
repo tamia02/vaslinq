@@ -12,8 +12,9 @@ import ClientStories from "@/components/lux/sections/ClientStories";
 import SectionHead from "@/components/lux/sections/SectionHead";
 import CtaBand from "@/components/lux/sections/CtaBand";
 import ContactLinks from "@/components/lux/sections/ContactLinks";
+import CountUp from "@/components/lux/motion/CountUp";
+import KineticBand from "@/components/lux/motion/KineticBand";
 import { CALENDLY } from "@/components/lux/links";
-import { FEATURED } from "@/components/lux/work";
 import StepTabs, { type Step } from "@/components/lux/sections/StepTabs";
 import { MockCode, MockDashboard, MockShot } from "@/components/lux/demos/Mocks";
 
@@ -102,11 +103,13 @@ const PROCESS: Step[] = [
   },
 ];
 
+const TRUSTED = ["launchOS", "Software Hub", "Aandré Amelie", "Kusho", "AARC Bookkeeping", "Laptop House"];
+
 const PROMISES = [
+  { big: "9+", label: "Live products & experiences shipped for clients" },
+  { big: "7", label: "Industries served — SaaS, retail, finance, health, education & more" },
   { big: "24/7", label: "AI agents that never miss a lead or a customer" },
-  { big: "100%", label: "Custom-built — no templates, no lock-in" },
-  { big: "Weeks", label: "From discovery call to a live product" },
-  { big: "Global", label: "Serving founders and brands in India and abroad" },
+  { big: "3+", label: "Languages our agents speak — Hindi, English, Arabic" },
 ];
 
 export default function Home() {
@@ -170,19 +173,19 @@ export default function Home() {
                 View our work
               </Link>
             </FadeIn>
-            <FadeIn hero delay={650} className="mt-10 flex items-center gap-4 text-[14px] text-ink-mute">
-              <div className="flex -space-x-3" aria-hidden="true">
-                {FEATURED.map((p) => (
-                  <span key={p.slug} className="h-9 w-9 shrink-0 overflow-hidden rounded-full border-2 border-pearl shadow-sm">
-                    <img src={p.image} alt="" className="h-full w-full object-cover object-top" />
-                  </span>
+            <FadeIn hero delay={650} className="mt-10">
+              <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-ink-mute">Trusted by founders &amp; brands</p>
+              <ul className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
+                {TRUSTED.map((n) => (
+                  <li key={n} className="text-[16px] font-bold tracking-[-0.02em] text-ink/70 transition-colors hover:text-violet">
+                    {n}
+                  </li>
                 ))}
-              </div>
-              <span>Trusted by founders &amp; brands across SaaS, D2C, finance and healthcare.</span>
+              </ul>
             </FadeIn>
           </div>
 
-          <div className="relative h-[380px] sm:h-[460px] lg:col-span-6 lg:h-[640px]">
+          <div className="relative order-first -mb-4 h-[300px] sm:h-[420px] lg:order-none lg:col-span-6 lg:mb-0 lg:h-[640px]">
             <Stage3D
               scene="hero"
               shape="knot"
@@ -281,12 +284,14 @@ export default function Home() {
         <ul className="grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4">
           {PROMISES.map((p, i) => (
             <FadeIn as="li" key={p.big} delay={i * 70} className="border-l border-line pl-6">
-              <div className="display text-[clamp(40px,4.5vw,60px)] font-bold text-ink">{p.big}</div>
+              <div className="display text-[clamp(40px,4.5vw,60px)] font-bold text-ink"><CountUp value={p.big} /></div>
               <p className="mt-3 max-w-[220px] text-[15px] leading-[1.55] text-ink-mute">{p.label}</p>
             </FadeIn>
           ))}
         </ul>
       </section>
+
+      <KineticBand words={["Design", "Build", "Automate", "Scale"]} />
 
       {/* ─────────── Client stories ─────────── */}
       <ClientStories />

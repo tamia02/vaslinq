@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import KineticBand from "@/components/lux/motion/KineticBand";
 import Link from "next/link";
 import PageHero from "@/components/lux/sections/PageHero";
 import SectionHead from "@/components/lux/sections/SectionHead";
@@ -251,6 +252,8 @@ export default function SoftwarePage() {
           <PillMarquee rows={STACK_ROWS} />
         </FadeIn>
       </section>
+
+      <KineticBand words={["SaaS", "Marketplaces", "Storefronts", "3D web"]} />
 
       <CtaBand title={<>Have a product in mind? <span className="font-serif font-normal italic">Let&apos;s ship it.</span></>} />
     </>

@@ -1,6 +1,6 @@
 export const CALENDLY = "https://calendly.com/tasmiyasiddiqui457/quick-discovery-call";
 export const WHATSAPP = "https://wa.me/919453283929";
-export const EMAIL = "hello@vaslix.in";
+export const EMAIL = "hello@vaslix.com";
 
 export const SERVICES = [
   { href: "/software", label: "Custom Software", icon: "deployed_code", desc: "SaaS, marketplaces, e-commerce & 3D web" },

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import KineticBand from "@/components/lux/motion/KineticBand";
 import Link from "next/link";
 import PageHero from "@/components/lux/sections/PageHero";
 import SectionHead from "@/components/lux/sections/SectionHead";
@@ -320,6 +321,8 @@ export default function UttarPradeshPage() {
           <Faq items={FAQS} />
         </FadeIn>
       </section>
+
+      <KineticBand words={["Lucknow", "Kanpur", "Noida", "Varanasi", "Prayagraj", "Agra"]} />
 
       <CtaBand title={<>Let&apos;s put AI to work for your <span className="font-serif font-normal italic">UP business.</span></>} />
     </>

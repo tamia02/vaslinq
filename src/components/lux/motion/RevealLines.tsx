@@ -34,8 +34,8 @@ export default function RevealLines({ lines, as = "h2", className = "", delay = 
               initial={{ y: "105%", rotate: 2 }}
               {...(hero
                 ? { animate: { y: "0%", rotate: 0 } }
-                : { whileInView: { y: "0%", rotate: 0 }, viewport: { once: true, margin: "0px 0px -40px 0px" } })}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: wait + delay + i * 0.09 }}
+                : { whileInView: { y: "0%", rotate: 0 }, viewport: { once: true, margin: "0px 0px 15% 0px" } })}
+              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: wait + delay + i * 0.08 }}
             >
               {line}
             </motion.span>

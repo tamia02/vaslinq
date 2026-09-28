@@ -7,7 +7,7 @@ export const BUSINESS = {
   name: "Vaslix",
   legalName: "Vaslix",
   tagline: "AI Agency in Lucknow, Uttar Pradesh",
-  email: "hello@vaslix.in",
+  email: "hello@vaslix.com",
   phone: "+91-9453283929",
   phoneDisplay: "+91 94532 83929",
   founder: "Tasmiya Siddiqui",

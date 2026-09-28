@@ -62,6 +62,10 @@ export default function RootLayout({
     <html lang="en-IN" suppressHydrationWarning className={`${inter.variable} ${instrument.variable} h-full antialiased`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: introScript }} />
+        <noscript>
+          {/* Without JS, never leave animated content hidden */}
+          <style>{`[style*="opacity:0"],[style*="opacity: 0"]{opacity:1!important;transform:none!important}.vx-preloader{display:none!important}`}</style>
+        </noscript>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd()) }} />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"

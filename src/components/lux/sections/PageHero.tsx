@@ -51,7 +51,7 @@ export default function PageHero({ eyebrow, lines, sub, shape, sceneLabel = "Dec
           )}
         </div>
         {shape && (
-          <div className="relative h-[320px] sm:h-[400px] lg:col-span-5 lg:h-[500px]">
+          <div className="relative order-first -mb-2 h-[240px] sm:h-[360px] lg:order-none lg:col-span-5 lg:mb-0 lg:h-[500px]">
             <Stage3D scene="hero" shape={shape} className="absolute inset-0 lg:-right-12" label={sceneLabel} />
           </div>
         )}

@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { ARTICLES } from '@/content/insights'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.vaslix.com'
@@ -13,7 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/insights',
     '/contact',
     '/ai-agency-uttar-pradesh',
-    '/vaslix-ai'
+    '/vaslix-ai',
+    ...ARTICLES.map((a) => `/insights/${a.slug}`)
   ]
 
   return routes.map((route) => ({

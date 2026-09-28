@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import KineticBand from "@/components/lux/motion/KineticBand";
 import PageHero from "@/components/lux/sections/PageHero";
 import SectionHead from "@/components/lux/sections/SectionHead";
 import CtaBand from "@/components/lux/sections/CtaBand";
@@ -207,6 +208,8 @@ export default function WorkPage() {
       </section>
 
       <ClientStories />
+      <KineticBand words={["Designed", "Built", "Shipped", "Live"]} />
+
       <CtaBand title={<>Your product could be <span className="font-serif font-normal italic">next.</span></>} />
     </>
   );

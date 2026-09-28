@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import KineticBand from "@/components/lux/motion/KineticBand";
 import PageHero from "@/components/lux/sections/PageHero";
 import SectionHead from "@/components/lux/sections/SectionHead";
 import CtaBand from "@/components/lux/sections/CtaBand";
@@ -276,6 +277,8 @@ export default function AutomationPage() {
           <PillMarquee rows={INTEGRATIONS} />
         </FadeIn>
       </section>
+
+      <KineticBand words={["Capture", "Qualify", "Follow up", "Close"]} />
 
       <CtaBand title={<>Stop doing work a <span className="font-serif font-normal italic">system</span> should do.</>} />
     </>
