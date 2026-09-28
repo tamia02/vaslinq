@@ -105,7 +105,7 @@ export const MORE_WORK: Project[] = [
     url: "https://laptophouse-knp.vercel.app",
     industry: "Retail",
     kind: "Local business website",
-    blurb: "A bilingual (English/Hindi) storefront for Kanpur's long-running laptop retailer and repair centre.",
+    blurb: "A bilingual (English/Hindi) storefront for a long-running laptop retailer and repair centre.",
     tags: ["Website", "Local SEO"],
     image: "/work/laptop-house.jpg",
     tone: "#f5a524",

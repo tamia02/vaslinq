@@ -6,40 +6,16 @@ export const SITE_URL = "https://www.vaslix.com";
 export const BUSINESS = {
   name: "Vaslix",
   legalName: "Vaslix",
-  tagline: "AI Agency in Lucknow, Uttar Pradesh",
+  tagline: "AI Agency — Custom Software & AI Automation",
   email: "hello@vaslix.com",
   phone: "+91-9453283929",
   phoneDisplay: "+91 94532 83929",
   founder: "Tasmiya Siddiqui",
   address: {
-    // TODO: add the exact street address + PIN once confirmed; must match the
-    // Google Business Profile character for character.
-    street: "",
-    postalCode: "",
-    city: "Lucknow",
-    region: "Uttar Pradesh",
-    regionCode: "UP",
     country: "IN",
     countryName: "India",
   },
-  // Lucknow city centre
-  geo: { lat: 26.8467, lng: 80.9462 },
-  areaServed: [
-    "Lucknow",
-    "Kanpur",
-    "Noida",
-    "Ghaziabad",
-    "Varanasi",
-    "Prayagraj",
-    "Agra",
-    "Meerut",
-    "Gorakhpur",
-    "Bareilly",
-    "Aligarh",
-    "Moradabad",
-    "Uttar Pradesh",
-    "India",
-  ],
+  areaServed: ["India", "Worldwide"],
   sameAs: [
     "https://www.linkedin.com/company/vaslix",
     "https://clutch.co/profile/vaslix",
@@ -47,22 +23,12 @@ export const BUSINESS = {
   ],
 };
 
-export const addressLine = () =>
-  [BUSINESS.address.street, BUSINESS.address.city, `${BUSINESS.address.region} ${BUSINESS.address.postalCode}`.trim(), BUSINESS.address.countryName]
-    .filter(Boolean)
-    .join(", ");
+export const addressLine = () => BUSINESS.address.countryName;
 
 // Site-wide structured data: Organization + LocalBusiness + WebSite.
 export function siteJsonLd() {
   const a = BUSINESS.address;
-  const postal = {
-    "@type": "PostalAddress",
-    ...(a.street ? { streetAddress: a.street } : {}),
-    addressLocality: a.city,
-    addressRegion: a.region,
-    ...(a.postalCode ? { postalCode: a.postalCode } : {}),
-    addressCountry: a.country,
-  };
+  const postal = { "@type": "PostalAddress", addressCountry: a.country };
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -81,20 +47,19 @@ export function siteJsonLd() {
       {
         "@type": "ProfessionalService",
         "@id": `${SITE_URL}/#localbusiness`,
-        name: `${BUSINESS.name} — AI Agency in Lucknow, Uttar Pradesh`,
+        name: `${BUSINESS.name} — AI Agency`,
         url: SITE_URL,
         image: `${SITE_URL}/og.png`,
         logo: `${SITE_URL}/logo.png`,
         description:
-          "Vaslix is an AI agency in Lucknow, Uttar Pradesh building custom software, SaaS platforms, AI WhatsApp and voice agents, and business automation for companies across UP, India and worldwide.",
+          "Vaslix is an AI agency building custom software, SaaS platforms, AI WhatsApp and voice agents, and business automation for companies in India and worldwide.",
         telephone: BUSINESS.phone,
         email: BUSINESS.email,
         address: postal,
-        geo: { "@type": "GeoCoordinates", latitude: BUSINESS.geo.lat, longitude: BUSINESS.geo.lng },
-        areaServed: BUSINESS.areaServed.map((name) => ({
-          "@type": name === "India" ? "Country" : name === "Uttar Pradesh" ? "State" : "City",
-          name,
-        })),
+        areaServed: [
+          { "@type": "Country", name: "India" },
+          { "@type": "Place", name: "Worldwide" },
+        ],
         parentOrganization: { "@id": `${SITE_URL}/#organization` },
         knowsAbout: [
           "Artificial intelligence",

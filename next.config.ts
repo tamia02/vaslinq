@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
     // Old section names → new, clearer routes (keeps inbound links and SEO).
     return [
       { source: '/pricing', destination: '/contact', permanent: false },
+      { source: '/ai-agency-uttar-pradesh', destination: '/', permanent: true },
       { source: '/solutions', destination: '/ai-agents', permanent: true },
       { source: '/ecosystem', destination: '/automation', permanent: true },
       { source: '/enterprise', destination: '/software', permanent: true },

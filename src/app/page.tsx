@@ -19,9 +19,9 @@ import StepTabs, { type Step } from "@/components/lux/sections/StepTabs";
 import { MockCode, MockDashboard, MockShot } from "@/components/lux/demos/Mocks";
 
 export const metadata: Metadata = {
-  title: { absolute: "AI Agency in Lucknow, Uttar Pradesh | Vaslix" },
+  title: { absolute: "Vaslix — AI Agency for Custom Software & AI Automation" },
   description:
-    "Vaslix is an AI agency in Lucknow, Uttar Pradesh building AI WhatsApp & voice agents, business automation and custom software for companies across UP and India.",
+    "Vaslix is an AI agency building AI WhatsApp & voice agents, business automation and custom software for ambitious companies in India and worldwide.",
   alternates: { canonical: "https://www.vaslix.com" },
 };
 
@@ -119,8 +119,8 @@ export default function Home() {
     provider: { "@id": "https://www.vaslix.com/#localbusiness" },
     name: "Custom Software & AI Automation",
     serviceType: "AI agency",
-    areaServed: ["Lucknow", "Uttar Pradesh", "India"],
-    description: "Custom software, SaaS platforms, AI WhatsApp/voice agents and business automation from a Lucknow-based AI agency.",
+    areaServed: ["India", "Worldwide"],
+    description: "Custom software, SaaS platforms, AI WhatsApp/voice agents and business automation from Vaslix.",
   };
 
   return (
@@ -148,7 +148,7 @@ export default function Home() {
               delay={0.1}
               lines={[
                 <span key="loc" className="mb-4 block text-[15px] font-semibold tracking-[0.02em] text-violet sm:text-[16px]">
-                  AI agency in Lucknow, Uttar Pradesh
+                  AI agency · Software &amp; automation
                 </span>,
                 "Custom software",
                 "& AI that runs",
@@ -157,9 +157,9 @@ export default function Home() {
             />
             <FadeIn hero delay={450}>
               <p className="mt-6 max-w-lg text-[18px] leading-[1.65] text-ink-soft">
-                Vaslix is a Lucknow-based AI agency. We design and build SaaS platforms, premium websites,
-                AI chat &amp; voice agents and automation for ambitious brands across Uttar Pradesh, India
-                and worldwide — so your team focuses on growth, not busywork.
+                Vaslix is an AI agency. We design and build SaaS platforms, premium websites, AI chat &amp;
+                voice agents and automation for ambitious brands in India and worldwide — so your team
+                focuses on growth, not busywork.
               </p>
             </FadeIn>
             <FadeIn hero delay={550} className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -307,17 +307,17 @@ export default function Home() {
       {/* ─────────── Local + product band ─────────── */}
       <section className="mx-auto grid max-w-6xl gap-6 px-6 pt-28 sm:px-8 md:grid-cols-2 lg:pt-36">
         <FadeIn>
-          <Link href="/ai-agency-uttar-pradesh" className="lux-card group flex h-full flex-col p-8 sm:p-10">
+          <Link href="/work" className="lux-card group flex h-full flex-col p-8 sm:p-10">
             <span className="lux-icon">
-              <span className="material-symbols-outlined text-[28px]" aria-hidden="true">location_on</span>
+              <span className="material-symbols-outlined text-[28px]" aria-hidden="true">rocket_launch</span>
             </span>
-            <p className="lux-eyebrow mt-8">Made in Lucknow</p>
-            <h2 className="mt-3 text-[26px] font-bold tracking-[-0.02em]">The AI agency for Uttar Pradesh businesses</h2>
+            <p className="lux-eyebrow mt-8">Proof, not promises</p>
+            <h2 className="mt-3 text-[26px] font-bold tracking-[-0.02em]">Every product we build is live</h2>
             <p className="mt-3 flex-1 leading-[1.65] text-ink-mute">
-              From Lucknow to Kanpur, Noida and Varanasi — AI agents that speak Hindi and Hinglish, and software built for how UP businesses really work.
+              SaaS platforms, marketplaces, storefronts and AI agents — see what we&apos;ve shipped for founders and brands.
             </p>
             <span className="mt-6 inline-flex items-center gap-2 font-semibold text-violet">
-              AI agency in Uttar Pradesh
+              View our work
               <span className="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
             </span>
           </Link>

@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { LogoMark, Wordmark } from "./Logo";
 import Magnetic from "./motion/Magnetic";
 import { CALENDLY, EMAIL, WHATSAPP } from "./links";
-import { BUSINESS, addressLine } from "@/lib/site";
+import { BUSINESS } from "@/lib/site";
 
 const COLUMNS = [
   {
@@ -25,7 +25,6 @@ const COLUMNS = [
       { href: "/about", label: "About" },
       { href: "/insights", label: "Insights" },
       { href: "/contact", label: "Contact" },
-      { href: "/ai-agency-uttar-pradesh", label: "AI agency in Uttar Pradesh" },
       { href: "/vaslix-ai", label: "Vaslix AI · soon" },
     ],
   },
@@ -134,7 +133,7 @@ export default function LuxFooter() {
               Available for new projects
             </span>
             <span className="hidden sm:inline">
-              Lucknow · <IndiaClock />
+              India · <IndiaClock />
             </span>
           </div>
         </div>
@@ -148,13 +147,9 @@ export default function LuxFooter() {
             <Wordmark className="text-[21px]" />
           </Link>
           <p className="mt-5 max-w-xs leading-relaxed text-ink-mute">
-            AI agency in Lucknow, Uttar Pradesh — custom software and AI automation for brands across UP, India and worldwide.
+            AI agency for custom software and AI automation — built in India, shipped worldwide.
           </p>
           <address className="mt-6 space-y-1 text-[14px] not-italic leading-relaxed text-ink-soft">
-            <span className="flex items-start gap-2">
-              <span className="material-symbols-outlined mt-0.5 text-[18px] text-violet" aria-hidden="true">location_on</span>
-              <span>{addressLine()}</span>
-            </span>
             <a href={`tel:${BUSINESS.phone.replace(/-/g, "")}`} className="flex items-center gap-2 hover:text-violet">
               <span className="material-symbols-outlined text-[18px] text-violet" aria-hidden="true">call</span>
               {BUSINESS.phoneDisplay}

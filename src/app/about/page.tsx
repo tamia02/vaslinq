@@ -8,9 +8,9 @@ import TiltCard from "@/components/fx/TiltCard";
 import { LogoMark } from "@/components/lux/Logo";
 
 export const metadata: Metadata = {
-  title: "About — AI & Software Studio in Lucknow, Uttar Pradesh",
+  title: "About — AI & Software Studio",
   description:
-    "Vaslix is a Lucknow-based AI agency and software studio founded by Tasmiya Siddiqui, building AI and automation for businesses across Uttar Pradesh and India.",
+    "Vaslix is an AI agency and software studio founded by Tasmiya Siddiqui, building AI and automation for businesses in India and worldwide.",
   alternates: { canonical: "https://www.vaslix.com/about" },
 };
 
@@ -102,7 +102,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <KineticBand words={["Lucknow", "Uttar Pradesh", "India", "Worldwide"]} />
+      <KineticBand words={["Design", "Build", "Automate", "Worldwide"]} />
 
       <CtaBand title={<>Let&apos;s build something <span className="font-serif font-normal italic">remarkable.</span></>} />
     </>

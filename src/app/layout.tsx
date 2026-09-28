@@ -27,11 +27,11 @@ const instrument = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "AI Agency in Lucknow, Uttar Pradesh | Vaslix — Custom Software & AI Automation",
+    default: "Vaslix — AI Agency for Custom Software & AI Automation",
     template: "%s | Vaslix",
   },
   description:
-    "Vaslix is an AI agency in Lucknow, Uttar Pradesh building AI WhatsApp & voice agents, business automation and custom software for companies across UP and India.",
+    "Vaslix is an AI agency building AI WhatsApp & voice agents, business automation and custom software for companies in India and worldwide.",
   applicationName: "Vaslix",
   authors: [{ name: "Tasmiya Siddiqui" }],
   openGraph: {
@@ -41,12 +41,6 @@ export const metadata: Metadata = {
     images: ["/og.png"],
   },
   twitter: { card: "summary_large_image", images: ["/og.png"] },
-  other: {
-    "geo.region": "IN-UP",
-    "geo.placename": "Lucknow",
-    "geo.position": "26.8467;80.9462",
-    ICBM: "26.8467, 80.9462",
-  },
 };
 
 // Runs before paint: skip the intro curtain for visitors who already saw it

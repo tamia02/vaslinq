@@ -10,7 +10,7 @@ import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Insights — AI, Automation & Software Guides",
-  description: "Practical guides on AI WhatsApp chatbots, voice agents, automation and custom software — costs, comparisons and implementation, from Vaslix in Lucknow.",
+  description: "Practical guides on AI WhatsApp chatbots, voice agents, automation and custom software — costs, comparisons and implementation, from Vaslix.",
   alternates: { canonical: `${SITE_URL}/insights` },
 };
 

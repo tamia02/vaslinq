@@ -303,7 +303,7 @@ export default function Preloader() {
             </LayoutGroup>
 
             <div className="absolute inset-x-6 bottom-7 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.2em] text-ink-mute sm:inset-x-10">
-              <span>Vaslix · Lucknow</span>
+              <span>Vaslix · AI Studio</span>
               <span>Click to skip</span>
             </div>
           </motion.div>

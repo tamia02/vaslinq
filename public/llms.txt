@@ -1,17 +1,15 @@
-# Vaslix — AI Agency in Lucknow, Uttar Pradesh
+# Vaslix — AI Agency
 
-> Vaslix is an AI agency and custom software studio based in Lucknow, Uttar Pradesh, India. It designs and builds AI WhatsApp and voice agents, business and CRM automation, and custom software (SaaS platforms, marketplaces, e-commerce and premium websites) for businesses across Uttar Pradesh, India and worldwide. Founded by Tasmiya Siddiqui.
+> Vaslix is an AI agency and custom software studio based in India. It designs and builds AI WhatsApp and voice agents, business and CRM automation, and custom software (SaaS platforms, marketplaces, e-commerce and premium websites) for businesses in India and worldwide. Founded by Tasmiya Siddiqui.
 
-## Location & service area
-- Headquarters: Lucknow, Uttar Pradesh, India
-- Serves: Lucknow, Kanpur, Noida, Ghaziabad, Varanasi, Prayagraj, Agra, Meerut, Gorakhpur, Bareilly, Aligarh, Moradabad — and clients across India and abroad
+## Service area
+- India and worldwide
 - Languages for AI agents: Hindi, English, Hinglish, Arabic and regional languages
 
 ## Services
 - [AI Agents](https://www.vaslix.com/ai-agents): AI WhatsApp chatbots, AI voice calling agents and website chatbots that answer customers, qualify leads and book appointments 24/7.
 - [Automation](https://www.vaslix.com/automation): business and CRM automation, follow-up systems, lead generation and AI content systems, integrated with tools like WhatsApp, Gmail, Google Calendar and Sheets.
 - [Custom Software](https://www.vaslix.com/software): SaaS platforms, marketplaces, custom e-commerce, internal tools, CRMs and interactive 3D websites.
-- [AI Agency in Uttar Pradesh](https://www.vaslix.com/ai-agency-uttar-pradesh): how Vaslix works with businesses across UP, by industry and city.
 
 ## Selected work
 - launchOS (AI SaaS for founders): https://www.launchos.co.in
@@ -19,7 +17,7 @@
 - Aandré Amelie (custom e-commerce, organic skincare): https://www.aandreamelie.com
 - Kusho (D2C comfort-products storefront)
 - AARC Smart Bookkeeping (US bookkeeping firm website): https://www.aarcbookkeeping.com
-- Laptop House, Kanpur (bilingual retail website)
+- Laptop House (bilingual retail website)
 - Full list: https://www.vaslix.com/work
 
 ## Upcoming

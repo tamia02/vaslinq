@@ -8,7 +8,7 @@ import { BUSINESS, SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Vaslix AI — Coming Soon at ai.vaslix.com",
   description:
-    "Vaslix AI is the upcoming self-serve platform from Vaslix, the Lucknow AI agency — the AI agents and automations we build for clients, ready to launch yourself. Join the waitlist.",
+    "Vaslix AI is the upcoming self-serve platform from Vaslix — the AI agents and automations we build for clients, ready to launch yourself. Join the waitlist.",
   alternates: { canonical: `${SITE_URL}/vaslix-ai` },
 };
 

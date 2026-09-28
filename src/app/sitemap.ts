@@ -13,7 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/insights',
     '/contact',
-    '/ai-agency-uttar-pradesh',
     '/vaslix-ai',
     ...ARTICLES.map((a) => `/insights/${a.slug}`)
   ]
@@ -22,6 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
-    priority: route === '' ? 1 : route === '/ai-agency-uttar-pradesh' ? 0.9 : 0.8,
+    priority: route === '' ? 1 : 0.8,
   }))
 }

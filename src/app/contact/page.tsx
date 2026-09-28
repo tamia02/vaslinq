@@ -7,8 +7,8 @@ import ContactForm from "@/components/lux/ContactForm";
 import FadeIn from "@/components/lux/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Contact — AI Agency in Lucknow, Uttar Pradesh",
-  description: "Talk to Vaslix, the Lucknow AI agency, about custom software, AI WhatsApp & voice agents and automation. Email, WhatsApp or book a free discovery call.",
+  title: "Contact — Request a Strategy Briefing",
+  description: "Talk to Vaslix about custom software, AI WhatsApp & voice agents and automation. Email, WhatsApp or book a free discovery call.",
   alternates: { canonical: "https://www.vaslix.com/contact" },
 };
 
