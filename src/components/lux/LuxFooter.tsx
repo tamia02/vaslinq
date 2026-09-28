@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { LogoMark, Wordmark } from "./Logo";
+import { WORDMARK_PATH, WORDMARK_VIEWBOX } from "./brandPaths";
 import Magnetic from "./motion/Magnetic";
 import { CALENDLY, EMAIL, WHATSAPP } from "./links";
 import { BUSINESS } from "@/lib/site";
@@ -143,8 +144,8 @@ export default function LuxFooter() {
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 sm:px-8 md:grid-cols-[1.4fr_repeat(3,1fr)]">
         <div>
           <Link href="/" className="inline-flex items-center gap-2.5" aria-label="Vaslix home">
-            <LogoMark size={40} />
-            <Wordmark className="text-[21px]" />
+            <LogoMark size={38} />
+            <Wordmark className="text-[25px] text-ink" />
           </Link>
           <p className="mt-5 max-w-xs leading-relaxed text-ink-mute">
             AI agency for custom software and AI automation — built in India, shipped worldwide.
@@ -192,10 +193,18 @@ export default function LuxFooter() {
       <div className="relative overflow-hidden">
         <motion.div
           aria-hidden="true"
-          className="lux-wordmark select-none text-center will-change-transform"
+          className="select-none px-4 pt-6 will-change-transform"
           style={reduced ? undefined : { y: markY }}
         >
-          Vaslix
+          <svg viewBox={WORDMARK_VIEWBOX} className="mx-auto block w-full max-w-[1400px]" aria-hidden="true">
+            <defs>
+              <linearGradient id="ft-wm" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor="#5B3DF5" stopOpacity="0.26" />
+                <stop offset="0.9" stopColor="#5B3DF5" stopOpacity="0.02" />
+              </linearGradient>
+            </defs>
+            <path d={WORDMARK_PATH} fill="url(#ft-wm)" />
+          </svg>
         </motion.div>
       </div>
 

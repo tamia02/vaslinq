@@ -19,6 +19,8 @@ const nextConfig: NextConfig = {
     return [
       { source: '/pricing', destination: '/contact', permanent: false },
       { source: '/ai-agency-uttar-pradesh', destination: '/', permanent: true },
+      { source: '/app', destination: 'https://ai.vaslix.com', permanent: false },
+      { source: '/login', destination: 'https://ai.vaslix.com', permanent: false },
       { source: '/solutions', destination: '/ai-agents', permanent: true },
       { source: '/ecosystem', destination: '/automation', permanent: true },
       { source: '/enterprise', destination: '/software', permanent: true },

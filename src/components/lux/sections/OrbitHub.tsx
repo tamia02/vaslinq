@@ -56,7 +56,7 @@ export default function OrbitHub() {
       <Ring items={OUTER} radius={250} duration={70} reverse />
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <span className="absolute inset-[-14px] animate-ping rounded-[34px] border border-violet/30" style={{ animationDuration: "2.8s" }} />
-        <LogoMark size={96} className="relative drop-shadow-[0_24px_40px_rgba(58,34,199,0.5)]" />
+        <LogoMark size={96} tile className="relative drop-shadow-[0_24px_40px_rgba(58,34,199,0.5)]" />
       </div>
     </div>
   );

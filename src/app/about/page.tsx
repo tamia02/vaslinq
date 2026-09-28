@@ -79,7 +79,7 @@ export default function AboutPage() {
           <FadeIn className="lg:col-span-5">
             <div className="lux-band relative grid aspect-[4/5] place-items-center overflow-hidden !rounded-[36px]">
               <div className="relative text-center">
-                <LogoMark size={120} className="mx-auto drop-shadow-[0_30px_40px_rgba(0,0,0,0.35)]" />
+                <LogoMark size={120} variant="white" className="mx-auto drop-shadow-[0_30px_40px_rgba(0,0,0,0.35)]" />
                 <p className="mt-8 font-serif text-[34px] italic text-white">Tasmiya Siddiqui</p>
                 <p className="mt-1 text-[14px] font-medium uppercase tracking-[0.2em] text-white/75">Founder · Vaslix</p>
               </div>

@@ -2,6 +2,7 @@
 
 import { AnimatePresence, LayoutGroup, animate, motion, useMotionTemplate, useMotionValue, useReducedMotion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
+import { MARK_LEFT, MARK_RIGHT, WORDMARK_PATH, WORDMARK_VIEWBOX } from "../brandPaths";
 
 const EXPO = [0.16, 1, 0.3, 1] as const;
 const PORTAL = [0.7, 0, 0.2, 1] as const;
@@ -215,40 +216,37 @@ export default function Preloader() {
                     >
                       <svg width="112" height="112" viewBox="0 0 48 48" fill="none">
                         <defs>
-                          <linearGradient id="pl-stroke" x1="10" y1="12" x2="38" y2="36" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#ffffff" />
-                            <stop offset="1" stopColor="#b9a8ff" />
+                          <linearGradient id="pl-l" x1="6" y1="8" x2="26" y2="40" gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#8B6DFF" />
+                            <stop offset="1" stopColor="#4B2FE0" />
+                          </linearGradient>
+                          <linearGradient id="pl-r" x1="42" y1="8" x2="24" y2="40" gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#B9A8FF" />
+                            <stop offset="1" stopColor="#6D4DFF" />
                           </linearGradient>
                         </defs>
-                        <motion.path
-                          d="M13 14.5 L24 34 L35 14.5"
-                          stroke="url(#pl-stroke)"
-                          strokeWidth="5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          initial={{ pathLength: 0 }}
-                          animate={{ pathLength: 1 }}
-                          transition={{ duration: 0.55, ease: [0.65, 0, 0.35, 1], delay: 0.3 }}
-                        />
-                        <motion.circle
-                          cx="35" cy="14.5" r="4.2" fill="#7c5cff"
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{ type: "spring", stiffness: 420, damping: 12, delay: 0.78 }}
-                          style={{ transformOrigin: "35px 14.5px" }}
-                        />
-                        <motion.circle
-                          cx="35" cy="14.5" r="1.6" fill="#fff"
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{ delay: 0.88, duration: 0.2 }}
-                          style={{ transformOrigin: "35px 14.5px" }}
-                        />
+                        <g transform="translate(5.2 5.6) scale(0.79)">
+                          {/* two ribbons fold in, one after the other */}
+                          <motion.path
+                            d={MARK_RIGHT}
+                            fill="url(#pl-r)"
+                            initial={{ opacity: 0, x: 10, y: -12 }}
+                            animate={{ opacity: 1, x: 0, y: 0 }}
+                            transition={{ duration: 0.55, ease: EXPO, delay: 0.45 }}
+                          />
+                          <motion.path
+                            d={MARK_LEFT}
+                            fill="url(#pl-l)"
+                            initial={{ opacity: 0, x: -10, y: -12 }}
+                            animate={{ opacity: 1, x: 0, y: 0 }}
+                            transition={{ duration: 0.55, ease: EXPO, delay: 0.3 }}
+                          />
+                        </g>
                       </svg>
                     </motion.div>
 
-                    {/* Spark burst from the node */}
-                    <div className="pointer-events-none absolute left-1/2 top-[56px] z-20" style={{ marginLeft: 26, marginTop: -22 }}>
+                    {/* Spark burst from the tip of the V */}
+                    <div className="pointer-events-none absolute left-1/2 top-[56px] z-20" style={{ marginLeft: 0.5, marginTop: 30 }}>
                       {SPARKS.map((sp, i) => (
                         <motion.span
                           key={i}
@@ -272,23 +270,37 @@ export default function Preloader() {
                       />
                     ))}
 
-                    <motion.div
-                      className="relative z-10 mt-8 flex overflow-hidden bg-[linear-gradient(110deg,#110e24_42%,#8b6dff_50%,#110e24_58%)] bg-[length:260%_100%] bg-clip-text pb-1 text-[52px] font-extrabold tracking-[-0.045em] text-transparent sm:text-[60px]"
-                      initial={{ backgroundPosition: "100% 0" }}
-                      animate={{ backgroundPosition: "-60% 0", opacity: zoom ? 0 : 1, y: zoom ? 12 : 0 }}
-                      transition={{ backgroundPosition: { duration: 1.1, ease: "easeInOut", delay: 0.75 }, opacity: { duration: 0.25 }, y: { duration: 0.3 } }}
+                    {/* outlined wordmark: rises into view, then a violet shine sweeps across */}
+                    <motion.svg
+                      viewBox={WORDMARK_VIEWBOX}
+                      className="relative z-10 mt-8 h-[46px] w-auto text-ink sm:h-[54px]"
+                      initial={{ opacity: 0, y: 26, clipPath: "inset(0 100% 0 0)" }}
+                      animate={{ opacity: zoom ? 0 : 1, y: zoom ? 12 : 0, clipPath: "inset(0 0% 0 0)" }}
+                      transition={{ duration: zoom ? 0.25 : 0.8, ease: EXPO, delay: zoom ? 0 : 0.4 }}
                     >
-                      {"Vaslix".split("").map((l, i) => (
-                        <motion.span
-                          key={i}
-                          initial={{ y: "110%" }}
-                          animate={{ y: "0%" }}
-                          transition={{ duration: 0.7, ease: EXPO, delay: 0.35 + i * 0.045 }}
-                        >
-                          {l}
-                        </motion.span>
-                      ))}
-                    </motion.div>
+                      <defs>
+                        <clipPath id="pl-wm">
+                          <path d={WORDMARK_PATH} />
+                        </clipPath>
+                        <linearGradient id="pl-shine" x1="0" y1="0" x2="1" y2="0">
+                          <stop offset="0" stopColor="#8B6DFF" stopOpacity="0" />
+                          <stop offset="0.5" stopColor="#8B6DFF" />
+                          <stop offset="1" stopColor="#8B6DFF" stopOpacity="0" />
+                        </linearGradient>
+                      </defs>
+                      <path d={WORDMARK_PATH} fill="currentColor" />
+                      <g clipPath="url(#pl-wm)">
+                        <motion.rect
+                          y="-1600"
+                          width="1600"
+                          height="2400"
+                          fill="url(#pl-shine)"
+                          initial={{ x: -1800 }}
+                          animate={{ x: 5600 }}
+                          transition={{ duration: 1.2, ease: "easeInOut", delay: 0.85 }}
+                        />
+                      </g>
+                    </motion.svg>
                     <motion.p
                       className="relative z-10 mt-1 font-serif text-[21px] italic text-violet"
                       initial={{ opacity: 0, y: 8 }}

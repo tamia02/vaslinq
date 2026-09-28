@@ -4,6 +4,7 @@ import SectionHead from "@/components/lux/sections/SectionHead";
 import FadeIn from "@/components/lux/FadeIn";
 import TiltCard from "@/components/fx/TiltCard";
 import { BUSINESS, SITE_URL } from "@/lib/site";
+import { AI_APP_LIVE, AI_APP_URL } from "@/components/lux/links";
 
 export const metadata: Metadata = {
   title: "Vaslix AI — Coming Soon at ai.vaslix.com",
@@ -45,16 +46,28 @@ export default function VaslixAiPage() {
         lines={["Vaslix AI.", <>Our platform, <span key="a" className="serif-accent">self-serve.</span></>]}
         sub="We're turning the AI agents and automations we build for clients into a platform you can launch yourself. Be first in line."
       >
-        <a href={WAITLIST_MAIL} className="lux-btn lux-btn-primary">
-          Join the waitlist
-          <span className="material-symbols-outlined arrow text-[18px]" aria-hidden="true">arrow_forward</span>
-        </a>
-        <a href={WAITLIST_WA} target="_blank" rel="noopener noreferrer" className="lux-btn lux-btn-ghost">
-          Via WhatsApp
-        </a>
+        {AI_APP_LIVE ? (
+          <a href={AI_APP_URL} className="lux-btn lux-btn-primary">
+            Open Vaslix AI
+            <span className="material-symbols-outlined arrow text-[18px]" aria-hidden="true">arrow_forward</span>
+          </a>
+        ) : (
+          <>
+            <a href={WAITLIST_MAIL} className="lux-btn lux-btn-primary">
+              Join the waitlist
+              <span className="material-symbols-outlined arrow text-[18px]" aria-hidden="true">arrow_forward</span>
+            </a>
+            <a href={WAITLIST_WA} target="_blank" rel="noopener noreferrer" className="lux-btn lux-btn-ghost">
+              Via WhatsApp
+            </a>
+          </>
+        )}
       </PageHero>
 
       <section className="mx-auto max-w-6xl px-6 py-24 sm:px-8 lg:py-32">
+        <FadeIn>
+          <img src="/brand/vaslix-ai-logo.svg" alt="Vaslix AI" className="mb-8 h-10 w-auto" />
+        </FadeIn>
         <SectionHead eyebrow="What's coming" lines={["Everything we build,", <><span key="a" className="serif-accent">in your hands.</span></>]} />
         <ul className="mt-14 grid gap-6 md:grid-cols-3">
           {PILLARS.map((p, i) => (

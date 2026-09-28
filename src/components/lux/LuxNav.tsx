@@ -64,8 +64,8 @@ export default function LuxNav() {
         }`}
       >
         <Link href="/" className="group flex items-center gap-2.5 rounded-full pr-2" aria-label="Vaslix home">
-          <LogoMark size={38} className="transition-transform duration-500 group-hover:rotate-[-8deg]" />
-          <Wordmark className="text-[20px] text-ink" />
+          <LogoMark size={34} className="transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:scale-110" />
+          <Wordmark className="text-[23px] text-ink" />
         </Link>
 
         <ul className="hidden items-center lg:flex" onPointerLeave={() => setHover(null)}>
@@ -105,6 +105,11 @@ export default function LuxNav() {
                   }`}
                 >
                   {l.label}
+                  {l.badge && (
+                    <span className="ml-1.5 rounded-full bg-violet px-1.5 py-0.5 align-[2px] text-[9px] font-bold uppercase tracking-wider text-white">
+                      {l.badge}
+                    </span>
+                  )}
                 </Link>
               </li>
             );
@@ -213,7 +218,10 @@ export default function LuxNav() {
                       pathname.startsWith(l.href) ? "bg-lilac text-violet" : "text-ink hover:bg-lilac"
                     }`}
                   >
-                    {l.label}
+                    <span>
+                      {l.label}
+                      {l.badge && <span className="ml-2 rounded-full bg-violet px-2 py-0.5 align-[3px] text-[10px] font-bold uppercase tracking-wider text-white">{l.badge}</span>}
+                    </span>
                     <span className="material-symbols-outlined text-[18px] text-ink-mute" aria-hidden="true">arrow_forward</span>
                   </Link>
                 </motion.li>
