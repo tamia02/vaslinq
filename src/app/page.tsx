@@ -114,6 +114,20 @@ const PROMISES = [
   { big: "3+", label: "Languages our agents speak — Hindi, English, Arabic" },
 ];
 
+const FREE_TOOLS = [
+  { href: "https://seo.vaslix.com/", name: "SEO Article Writer & Checker", desc: "Paste your article and target keyword, get a draft plus an in-browser SEO check." },
+  { href: "https://aeo.vaslix.com/", name: "AI Search Visibility Checker", desc: "Check if ChatGPT, Perplexity and Google AI can technically read your website." },
+  { href: "https://repurpose.vaslix.com/", name: "Content Repurposer", desc: "Turn one article or transcript into drafts for LinkedIn, X and more." },
+  { href: "https://reply.vaslix.com/", name: "Email Reply Drafter", desc: "Paste the email you received, get a draft reply you can edit and copy." },
+  { href: "https://resume.vaslix.com/", name: "Resume & Job Match Helper", desc: "Check how your resume matches a job description and rewrite weak lines." },
+  { href: "https://thumb.vaslix.com/", name: "YouTube Thumbnail Creator", desc: "Type your video title and topic, get a 1280 x 720 thumbnail ready to download." },
+  { href: "https://video.vaslix.com/", name: "Faceless Video Creator", desc: "Turn your notes into a short narrated video, put together in your browser." },
+  { href: "https://invoice.vaslix.com/", name: "Invoice Generator", desc: "Make a clean invoice with optional GST fields and save it as a PDF." },
+  { href: "https://offer.vaslix.com/", name: "Sales Offer Builder", desc: "Turn your freelance service into a clear one-page offer." },
+  { href: "https://outreach.vaslix.com/", name: "Outreach Email Drafter", desc: "Draft a short, honest first cold email and follow-ups." },
+  { href: "https://sales.vaslix.com/", name: "Sales Message Writer", desc: "Write a first sales email and two follow-ups from a few details about your offer." },
+];
+
 export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -203,7 +217,8 @@ export default function Home() {
             </FadeIn>
             <FadeIn hero delay={1050} className="absolute bottom-12 right-2 hidden sm:block">
               <div className="lux-glass flex items-center gap-3 rounded-2xl px-4 py-3">
-                <span className="relative flex h-2.5 w-2.5">
+              
+  <span className="relative flex h-2.5 w-2.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet opacity-60" />
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-violet" />
                 </span>
@@ -340,6 +355,34 @@ export default function Home() {
         </FadeIn>
       </section>
 
+      {/* ─────────── Free tools ─────────── */}
+      <section id="free-tools" className="mx-auto max-w-6xl px-6 pt-28 sm:px-8 lg:pt-36">
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-7">
+            <SectionHead eyebrow="Free tools" lines={["Free tools,", <>no <span key="a" className="serif-accent">sign-up.</span></>]} />
+          </div>
+          <FadeIn delay={100} className="lg:col-span-5">
+            <p className="text-[18px] leading-[1.65] text-ink-soft">
+              Small utilities we built and run ourselves. Free, no account, and we do not store what you type.
+            </p>
+          </FadeIn>
+        </div>
+        <ul className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {FREE_TOOLS.map((tool, i) => (
+            <FadeIn as="li" key={tool.href} delay={i * 60} className="h-full">
+              <a href={tool.href} target="_blank" rel="noopener" className="lux-card group flex h-full flex-col p-7">
+                <h3 className="text-[19px] font-bold tracking-[-0.02em] group-hover:text-violet">{tool.name}</h3>
+                <p className="mt-2 flex-1 text-[15px] leading-[1.6] text-ink-mute">{tool.desc}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-violet">
+                  Open free tool
+                  <span className="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
+                </span>
+              </a>
+            </FadeIn>
+          ))}
+        </ul>
+      </section>
+
       <CtaBand />
 
       {/* ─────────── Contact ─────────── */}
@@ -361,3 +404,4 @@ export default function Home() {
     </>
   );
 }
+
