@@ -73,6 +73,7 @@ export const ARTICLES: Article[] = [
         paragraphs: [
           "The most cost-effective path is a focused first version: one channel, your most common questions, and one key action — usually qualifying the lead and booking a call or visit. Once it's live and you can see real conversations, you add integrations and languages where they clearly earn their keep.",
           "At Vaslix every project is scoped individually after a free discovery call, with fixed deliverables and no hidden fees.",
+          "If you want a feel for AI-drafted replies before committing to anything, try our free [Email Reply Drafter](https://reply.vaslix.com/): paste a customer email and your notes, and it writes a draft you check and send yourself.",
         ],
       },
     ],
@@ -162,6 +163,7 @@ export const ARTICLES: Article[] = [
         paragraphs: [
           "Most focused automation projects — a WhatsApp lead agent connected to your CRM, or an automated follow-up system — go live in a matter of weeks. Larger custom software builds take longer and are planned in phases.",
           "What matters more than the calendar is the path. Here's how a typical project runs.",
+          "Some jobs do not need a project at all: single-purpose free tools like our [Invoice Generator](https://invoice.vaslix.com/) and [Content Repurposer](https://repurpose.vaslix.com/) run in the browser with no setup, one task done in minutes.",
         ],
       },
       {

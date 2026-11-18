@@ -39,6 +39,19 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 const fmt = (iso: string) => new Date(iso).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
 
+// Renders [label](https://...) inside article paragraphs as real links.
+function linkify(p: string) {
+  return p.split(/(\[[^\]]+\]\(https?:\/\/[^)]+\))/g).map((part, i) => {
+    const g = part.match(/^\[([^\]]+)\]\((https?:\/\/[^)]+)\)$/);
+    if (!g) return part;
+    return (
+      <a key={i} href={g[2]} className="font-semibold text-violet underline decoration-violet/40 underline-offset-4 hover:decoration-violet">
+        {g[1]}
+      </a>
+    );
+  });
+}
+
 export default async function ArticlePage({ params }: Params) {
   const { slug } = await params;
   const a = getArticle(slug);
@@ -128,7 +141,7 @@ export default async function ArticlePage({ params }: Params) {
                 </FadeIn>
                 {s.paragraphs.map((p, i) => (
                   <FadeIn key={i} delay={60}>
-                    <p className="mt-5 text-[18px] leading-[1.8] text-ink-soft">{p}</p>
+                    <p className="mt-5 text-[18px] leading-[1.8] text-ink-soft">{linkify(p)}</p>
                   </FadeIn>
                 ))}
                 {s.bullets && (
@@ -191,3 +204,4 @@ export default async function ArticlePage({ params }: Params) {
     </>
   );
 }
+
