@@ -27,7 +27,6 @@ const COLUMNS = [
       { href: "/about", label: "About" },
       { href: "/insights", label: "Insights" },
       { href: "/contact", label: "Contact" },
-      { href: "/vaslix-ai", label: "Vaslix AI · soon" },
     ],
   },
   {
@@ -237,3 +236,4 @@ export default function LuxFooter() {
     </footer>
   );
 }
+
