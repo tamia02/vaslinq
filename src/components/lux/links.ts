@@ -18,5 +18,5 @@ export const NAV: { href: string; label: string; badge?: string }[] = [
   { href: "/about", label: "About" },
   { href: "/insights", label: "Insights" },
   { href: "/contact", label: "Contact" },
-  { href: "/vaslix-ai", label: "Vaslix AI", badge: "Soon" },
 ];
+
