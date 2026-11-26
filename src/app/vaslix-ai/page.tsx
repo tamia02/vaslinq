@@ -3,72 +3,46 @@ import PageHero from "@/components/lux/sections/PageHero";
 import SectionHead from "@/components/lux/sections/SectionHead";
 import FadeIn from "@/components/lux/FadeIn";
 import TiltCard from "@/components/fx/TiltCard";
-import { BUSINESS, SITE_URL } from "@/lib/site";
-import { AI_APP_LIVE, AI_APP_URL } from "@/components/lux/links";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Vaslix AI — Coming Soon at ai.vaslix.com",
+  title: "Vaslix AI: on hold",
   description:
-    "Vaslix AI is the upcoming self-serve platform from Vaslix — the AI agents and automations we build for clients, ready to launch yourself. Join the waitlist.",
+    "Vaslix AI, a self-serve version of our AI agents, is on hold. We still build custom AI agents and automations for clients.",
   alternates: { canonical: `${SITE_URL}/vaslix-ai` },
+  robots: { index: false, follow: true },
 };
 
-const WAITLIST_MAIL = `mailto:${BUSINESS.email}?subject=${encodeURIComponent("Vaslix AI — waitlist")}&body=${encodeURIComponent(
-  "Hi Vaslix team,\n\nPlease add me to the Vaslix AI early-access list.\n\nName:\nCompany:\nWhat I'd like to automate:\n"
-)}`;
-const WAITLIST_WA = `https://wa.me/919453283929?text=${encodeURIComponent("Hi! Please add me to the Vaslix AI waitlist.")}`;
-
 const PILLARS = [
-  { icon: "smart_toy", title: "Launch AI agents", desc: "Spin up the kind of WhatsApp, voice and website agents we build for clients." },
-  { icon: "account_tree", title: "Automate workflows", desc: "Connect leads, CRM, calendar and follow-ups without writing code." },
-  { icon: "monitoring", title: "See every result", desc: "One dashboard for conversations, bookings and what your automations did." },
+  { icon: "smart_toy", title: "AI agents for your business", desc: "WhatsApp, voice and website agents, built and run by us for your team." },
+  { icon: "account_tree", title: "Automated workflows", desc: "Leads, CRM, calendar and follow-ups connected without manual work." },
+  { icon: "monitoring", title: "Clear results", desc: "A view of conversations, bookings and what your automations did." },
 ];
 
 export default function VaslixAiPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "Vaslix AI",
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
-    url: "https://ai.vaslix.com",
-    publisher: { "@id": `${SITE_URL}/#organization` },
-    releaseNotes: "Coming soon — join the waitlist.",
-  };
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PageHero
-        eyebrow="Coming soon · ai.vaslix.com"
+        eyebrow="Vaslix AI · on hold"
         shape="orb"
         sceneLabel="Liquid glass orb"
-        lines={["Vaslix AI.", <>Our platform, <span key="a" className="serif-accent">self-serve.</span></>]}
-        sub="We're turning the AI agents and automations we build for clients into a platform you can launch yourself. Be first in line."
+        lines={["Vaslix AI.", <>Built for you, <span key="a" className="serif-accent">by us.</span></>]}
+        sub="A self-serve version of our AI agents is on hold for now. We still build custom AI agents and automations for clients."
       >
-        {AI_APP_LIVE ? (
-          <a href={AI_APP_URL} className="lux-btn lux-btn-primary">
-            Open Vaslix AI
-            <span className="material-symbols-outlined arrow text-[18px]" aria-hidden="true">arrow_forward</span>
-          </a>
-        ) : (
-          <>
-            <a href={WAITLIST_MAIL} className="lux-btn lux-btn-primary">
-              Join the waitlist
-              <span className="material-symbols-outlined arrow text-[18px]" aria-hidden="true">arrow_forward</span>
-            </a>
-            <a href={WAITLIST_WA} target="_blank" rel="noopener noreferrer" className="lux-btn lux-btn-ghost">
-              Via WhatsApp
-            </a>
-          </>
-        )}
+        <a href="/ai-agents" className="lux-btn lux-btn-primary">
+          See our AI agents
+          <span className="material-symbols-outlined arrow text-[18px]" aria-hidden="true">arrow_forward</span>
+        </a>
+        <a href="/contact" className="lux-btn lux-btn-ghost">
+          Talk to the team
+        </a>
       </PageHero>
 
       <section className="mx-auto max-w-6xl px-6 py-24 sm:px-8 lg:py-32">
         <FadeIn>
           <img src="/brand/vaslix-ai-logo.svg" alt="Vaslix AI" className="mb-8 h-10 w-auto" />
         </FadeIn>
-        <SectionHead eyebrow="What's coming" lines={["Everything we build,", <><span key="a" className="serif-accent">in your hands.</span></>]} />
+        <SectionHead eyebrow="What we do" lines={["Everything we build,", <><span key="a" className="serif-accent">for your business.</span></>]} />
         <ul className="mt-14 grid gap-6 md:grid-cols-3">
           {PILLARS.map((p, i) => (
             <FadeIn as="li" key={p.title} delay={i * 80} className="h-full">
@@ -84,8 +58,7 @@ export default function VaslixAiPage() {
         </ul>
         <FadeIn className="mt-10">
           <p className="text-center text-[15px] text-ink-mute">
-            Early-access members get priority onboarding. Need something built now?{" "}
-            <a href="/contact" className="font-semibold text-violet">Talk to the Vaslix team</a>.
+            Need something built? <a href="/contact" className="font-semibold text-violet">Talk to the Vaslix team</a>.
           </p>
         </FadeIn>
       </section>
