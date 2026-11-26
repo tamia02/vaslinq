@@ -13,7 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/insights',
     '/contact',
-    '/vaslix-ai',
     ...ARTICLES.map((a) => `/insights/${a.slug}`)
   ]
 
@@ -24,3 +23,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1 : 0.8,
   }))
 }
+
