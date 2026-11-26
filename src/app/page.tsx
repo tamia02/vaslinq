@@ -320,7 +320,7 @@ export default function Home() {
       </section>
 
       {/* ─────────── Local + product band ─────────── */}
-      <section className="mx-auto grid max-w-6xl gap-6 px-6 pt-28 sm:px-8 md:grid-cols-2 lg:pt-36">
+      <section className="mx-auto grid max-w-6xl gap-6 px-6 pt-28 sm:px-8 lg:pt-36">
         <FadeIn>
           <Link href="/work" className="lux-card group flex h-full flex-col p-8 sm:p-10">
             <span className="lux-icon">
@@ -333,22 +333,6 @@ export default function Home() {
             </p>
             <span className="mt-6 inline-flex items-center gap-2 font-semibold text-violet">
               View our work
-              <span className="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
-            </span>
-          </Link>
-        </FadeIn>
-        <FadeIn delay={90}>
-          <Link href="/vaslix-ai" className="lux-band group flex h-full flex-col !rounded-[28px] p-8 sm:p-10">
-            <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-white/15">
-              <span className="material-symbols-outlined text-[28px]" aria-hidden="true">rocket_launch</span>
-            </span>
-            <p className="relative mt-8 text-[12px] font-bold uppercase tracking-[0.18em] text-white/75">Coming soon · ai.vaslix.com</p>
-            <h2 className="relative mt-3 text-[26px] font-bold tracking-[-0.02em]">Vaslix AI — our platform, self-serve</h2>
-            <p className="relative mt-3 flex-1 leading-[1.65] text-white/85">
-              We&apos;re turning the systems we build for clients into a SaaS you can launch yourself. Join the waitlist for early access.
-            </p>
-            <span className="relative mt-6 inline-flex items-center gap-2 font-semibold">
-              Join the waitlist
               <span className="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
             </span>
           </Link>
@@ -404,4 +388,5 @@ export default function Home() {
     </>
   );
 }
+
 
