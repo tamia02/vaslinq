@@ -206,6 +206,79 @@ export const ARTICLES: Article[] = [
     ],
     cta: { label: "Explore automation", href: "/automation" },
   },
+  {
+    slug: "tailor-resume-to-job-post-worked-example",
+    title: "How to tailor a resume to a job post: a worked example",
+    category: "Free tools",
+    excerpt: "A step-by-step example with a fictional candidate: find the keywords in a job post, check which ones your resume already covers, and add only what is true.",
+    description:
+      "A worked example of tailoring a resume to a job post. Paste the post into a free keyword finder, check the match, and add only the skills you really have. Uses a fictional digital marketing candidate.",
+    published: "2026-11-27",
+    readMins: 5,
+    icon: "description",
+    takeaways: [
+      "Read the job post for the skills and tools it names, then check your resume against that list.",
+      "In this example the resume matched 20 of the top 29 job terms (69%) before any edits.",
+      "Add a missing term only if it is true for you. A match score is a rough guide, not what any employer's screening software does.",
+    ],
+    sections: [
+      {
+        id: "the-example",
+        heading: "The example: a fictional marketing candidate",
+        paragraphs: [
+          "Aisha Verma is a made-up candidate with three years in digital marketing. She is applying for a digital marketing executive role. The job post is short: Google Ads and Meta Ads campaigns, Mailchimp email campaigns, SEO with keyword research and content writing, Excel and Google Sheets reporting, Canva as a plus, and weekly presentations of results.",
+          "Everything below was run on the free [Resume Maker & Keyword Finder](https://resume.vaslix.com/) using this fictional post and resume, so the numbers are real output from the tool, not invented for the article.",
+        ],
+      },
+      {
+        id: "find-the-keywords",
+        heading: "Step 1: find the keywords in the job post",
+        paragraphs: [
+          "Paste the job post into Step 1 and press Find keywords. The tool lists the skills and tools the post names, and separately the words the post repeats. It runs in your browser.",
+          "For this post it listed skills and tools such as Google Ads, Meta Ads, Mailchimp, SEO, Google Sheets, Excel, Canva, content writing, reporting, research, presentation and communication.",
+          "It also lists plain words like hiring, matter and needed. Ignore those. The tool counts words, it does not understand the job, so read the post yourself too. Uncommon skills can be missed.",
+        ],
+      },
+      {
+        id: "check-the-match",
+        heading: "Step 2: check what your resume already covers",
+        paragraphs: [
+          "Build or paste your resume, then use Check my match with the same job post. The tool compares the words in the post with the words in the resume.",
+          "Aisha's resume matched 69% of the top 29 job terms. It already had Google Ads, Meta, Mailchimp, SEO, Canva, reporting, research and weekly. The missing terms it listed included communication, content, excel, presentation, results and writing.",
+          "Treat that number as a rough guide. It is simple word matching and it says so on the page.",
+        ],
+      },
+      {
+        id: "add-only-whats-true",
+        heading: "Step 3: add only what is true",
+        paragraphs: [
+          "Go through the missing terms one by one and ask a plain question for each: is this true for me?",
+        ],
+        bullets: [
+          "Excel: Aisha lists Google Sheets but not Excel. If she really uses Excel for reporting, she should say so. If she does not, she leaves it out.",
+          "Content writing: she wrote email campaigns and fixed product page titles. If that is content work she did, one bullet can say it in the post's words.",
+          "Presentation and communication: she writes weekly reports for the founder. If she also presents them, a bullet can say that.",
+        ],
+      },
+      {
+        id: "fix-weak-bullets",
+        heading: "Step 4: give each bullet a number or a result",
+        paragraphs: [
+          "The match check also flagged bullets with no number or result, such as writing weekly performance reports in Google Sheets and researching keywords and competitor ads. A bullet that says how many, how often or what changed is easier to trust than one that only names a task.",
+          "The tool can suggest AI rewrites for up to five weak bullets. The AI can add, change or drop details, so read every line and delete anything untrue.",
+        ],
+      },
+      {
+        id: "save-it",
+        heading: "Step 5: save it as a PDF",
+        paragraphs: [
+          "Pick one of the 10 single-column templates and use Download PDF. This opens your browser's print dialog. Choose Save as PDF there. Check the preview before you send it.",
+          "No template or score guarantees an interview or gets past any employer's screening. The goal is simpler: make sure the skills you really have are easy to find on the page.",
+        ],
+      },
+    ],
+    cta: { label: "Try the free resume tool", href: "https://resume.vaslix.com/" },
+  },
 ];
 
 export const getArticle = (slug: string) => ARTICLES.find((a) => a.slug === slug);
